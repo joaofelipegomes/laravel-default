@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return dd('welcome');
+Route::get('/api/teste', function () {
+    return view('welcome');
 });
