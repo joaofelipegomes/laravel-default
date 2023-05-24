@@ -10,7 +10,8 @@ document.querySelector('div > button').addEventListener('click', (e) => {
     })
     .then(function(response) {
       if (response.data[0].user_id) {
-        window.location.href = '/admin/painel'
+        console.log(response.data[0].user_id)
+        //window.location.href = '/admin/painel'
       } else {
         displaySnackbar('Usuário e/ou senha incorretos.', 'error')
       }
