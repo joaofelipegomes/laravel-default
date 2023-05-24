@@ -29,8 +29,8 @@ $('input[name="phone"]').blur(function(event) {
   }
 });
 
-$('input[name="document-number-check"]').length > 11 ? $('input[name="document-number-check"]').mask('00.000.000/0000-00', options_document) : $('input[name="document-number-check"]').mask('000.000.000-00#', options_document);
-$('input[name="subscription-document"]').length > 11 ? $('input[name="subscription-document"]').mask('00.000.000/0000-00', options_subscription) : $('input[name="subscription-document"]').mask('000.000.000-00#', options_subscription);
+$('input[name="document-number-check"]').val().length > 11 ? $('input[name="document-number-check"]').mask('00.000.000/0000-00', options_document) : $('input[name="document-number-check"]').mask('000.000.000-00#', options_document);
+$('input[name="subscription-document"]').val().length > 11 ? $('input[name="subscription-document"]').mask('00.000.000/0000-00', options_subscription) : $('input[name="subscription-document"]').mask('000.000.000-00#', options_subscription);
 
 $('input[name="due-date"]').mask('00/00/0000')
 $('input[name="start-date"]').mask('00/00/0000')
