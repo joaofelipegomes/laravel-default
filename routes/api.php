@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\API\APIController;
+use App\Http\Controllers\Admin\APIController;
 use App\Http\Controllers\Admin\MailController;
 use App\Services\KeyRequestService;
 
