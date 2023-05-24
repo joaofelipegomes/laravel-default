@@ -10,7 +10,7 @@
         <!--<h1>Portal administrativo {{ returnCookie('userInovaAdm') }}</h1>-->
         <div>
           <div>
-            <label for="username">Usuário</label>
+            <label for="username">Usuário {{ returnCookie('userInovaAdmin') }}</label>
             <input type="text" name="username" placeholder="" required="" autocomplete="off">
           </div>
 
