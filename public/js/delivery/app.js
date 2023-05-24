@@ -397,8 +397,6 @@ async function init() {
             document.querySelector('body > div.navigator > ul > li:nth-child(2) > a').addEventListener('click', function(e) {
                 e.preventDefault()
 
-                console.log(localStorage.getItem('bag'))
-
                 fetch('/delivery/api/localstorage', {
                     method: 'POST',
                     headers: {
@@ -408,7 +406,7 @@ async function init() {
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                    //console.log(data);
+                    console.log(data);
                 })
             })
 
