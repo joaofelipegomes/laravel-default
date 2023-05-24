@@ -205,7 +205,7 @@ async function init() {
 
     async function storeStatus(store) {
         return new Promise((resolve, reject) => {
-            fetch(`/${store}/status`, {
+            fetch(`/store/${store}/status`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
