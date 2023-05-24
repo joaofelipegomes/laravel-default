@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 let eventListener = false
 
-async function init() {
+
     function windowResize() {
         let content_padding = 0
         const content_width = window.innerWidth
@@ -405,7 +405,7 @@ async function init() {
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data);
+                  console.log(data);
                 })
             })
 
@@ -657,10 +657,3 @@ async function init() {
 
     postLocalStorage()
     showBody()
-}
-
-if (document.readyState === 'complete') {
-    init()
-} else {
-    document.addEventListener('DOMContentLoaded', () => init())
-}
