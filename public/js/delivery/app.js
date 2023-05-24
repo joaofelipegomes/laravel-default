@@ -1,5 +1,4 @@
-import Swup from 'swup'
-import date from 'date-and-time';
+const date = require('date-and-time');
 import { v4 as uuidv4 } from 'uuid';
 
 const swup = new Swup({})
