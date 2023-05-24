@@ -639,6 +639,7 @@ let eventListener = false
             getItemsFromLocal()
             hideBadge()
             editItems()
+            postLocalStorage()
             //verifyUser()
             break
         case (uri.includes('perfil')):
@@ -655,5 +656,5 @@ let eventListener = false
     }
 
 
-    postLocalStorage()
+
     showBody()
