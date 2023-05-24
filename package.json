@@ -3,6 +3,7 @@
     "type": "module",
     "scripts": {
         "css": "npx tailwindcss -i ./public/css/app.css -o ./public/css/dist.css --watch",
+        "css-delivery": "npx tailwindcss -i ./public/css/delivery/app.css -o ./public/css/delivery/dist.css --watch",
         "dev": "vite",
         "build": "vite build"
     },
@@ -12,7 +13,12 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "date-and-time": "^3.0.0",
+        "dotenv": "^16.0.3",
         "eslint": "^8.41.0",
-        "tailwindcss": "^3.3.2"
+        "process": "^0.11.10",
+        "swup": "^3.0.6",
+        "tailwindcss": "^3.3.2",
+        "uuid": "^9.0.0"
     }
 }

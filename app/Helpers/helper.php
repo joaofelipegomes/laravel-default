@@ -258,27 +258,86 @@ function formatZipCode($zipcode)
   return $zipcode;
 }
 
-function extrairMesPorExtenso($data) {
+function extrairMesPorExtenso($data)
+{
   $meses = array(
-      1 => 'Janeiro',
-      2 => 'Fevereiro',
-      3 => 'Março',
-      4 => 'Abril',
-      5 => 'Maio',
-      6 => 'Junho',
-      7 => 'Julho',
-      8 => 'Agosto',
-      9 => 'Setembro',
-      10 => 'Outubro',
-      11 => 'Novembro',
-      12 => 'Dezembro'
+    1 => 'Janeiro',
+    2 => 'Fevereiro',
+    3 => 'Março',
+    4 => 'Abril',
+    5 => 'Maio',
+    6 => 'Junho',
+    7 => 'Julho',
+    8 => 'Agosto',
+    9 => 'Setembro',
+    10 => 'Outubro',
+    11 => 'Novembro',
+    12 => 'Dezembro'
   );
 
   $mes = date('n', strtotime($data));
 
   if (isset($meses[$mes])) {
-      return $meses[$mes];
+    return $meses[$mes];
   } else {
-      return false;
+    return false;
   }
+}
+
+function formatText($text)
+{
+  $arraySearch  = array(' De ', ' Do ', ' Da ', ' E ', ' A ', ' O ', '- ');
+  $arrayReplace = array(' de ', ' do ', ' da ', ' e ', ' a ', ' o ', ' - ');
+  $text = ucwords(mb_strtolower($text));
+  $text = mb_convert_case($text, MB_CASE_TITLE, 'UTF-8');
+  $text = str_replace($arraySearch, $arrayReplace, $text);
+
+  return $text;
+}
+
+function formatDescription($text)
+{
+  $convertedText = "";
+  $text = strtolower($text);
+  $text = explode(". ", $text);
+
+  $numItems = count($text);
+  $i = 0;
+
+  foreach ($text as $key => $value) {
+    $value = mb_convert_case($value, MB_CASE_TITLE, "UTF-8");
+
+    if (++$i === $numItems) {
+      $convertedText = $convertedText . ucfirst(mb_strtolower($value));
+    } else {
+      $convertedText = $convertedText . ucfirst(mb_strtolower($value)) . ". ";
+    }
+  }
+
+  return $convertedText;
+}
+
+function extractNumber($number)
+{
+  return preg_replace('/[^0-9]/', '', $number);
+}
+
+function convertToNumber($string)
+{
+  return intval($string);
+}
+
+function convertToString($string)
+{
+  return strval($string);
+}
+
+function setCookies($name, $value)
+{
+  Cookie::queue($name, $value, 250000);
+}
+
+function getCookies($name)
+{
+  return request()->cookie($name);
 }
