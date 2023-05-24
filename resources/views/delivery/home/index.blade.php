@@ -88,9 +88,9 @@
             <div class="group-search">
                 <div class="categories-container">
                     <div class="categories">
-                        <select name="categories-dropdown" onchange="alert('teste')">
+                        <select name="categories-dropdown">
                             @foreach($categories as $category => $c)
-                            <option>{{ $c["name"] }}</option>
+                            <option value="{{ $c["id"] }}">{{ $c["name"] }}</option>
                             @endforeach
                         </select>
                         <span class="material-symbols-outlined">
