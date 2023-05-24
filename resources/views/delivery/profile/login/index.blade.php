@@ -20,12 +20,12 @@
                     </div>
                     <div class="space-y-3">
                         <p class="text-sm font-light text-gray-900 text-right flex !justify-end w-full" style="justify-content: end;">
-                            <a href="/perfil" class="font-medium text-primary-600 hover:underline text-right">Esqueceu a senha?</a>
+                            <a href="/delivery/perfil" class="font-medium text-primary-600 hover:underline text-right">Esqueceu a senha?</a>
                         </p>
                     </div>
                     <div class="py-5 space-y-3">
                         <button type="submit" class="w-full text-white bg-red-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center">Entrar</button>
-                        <p class="text-sm font-light text-gray-900">Não possui uma conta? <a href="/perfil" class="font-medium text-primary-600 hover:underline">Criar uma conta</a></p>
+                        <p class="text-sm font-light text-gray-900">Não possui uma conta? <a href="/delivery/perfil" class="font-medium text-primary-600 hover:underline">Criar uma conta</a></p>
                     </div>
                 </form>
             </div>

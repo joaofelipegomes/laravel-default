@@ -25,7 +25,7 @@
                                 </span>
                             </div>
                         </div>
-                        <a href="/profile/logout" class="w-full rounded-full py-3 flex gap-x-3 items-center">
+                        <a href="/delivery/profile/logout" class="w-full rounded-full py-3 flex gap-x-3 items-center">
                             <div class="font-medium">Sair</div>
                             <div class="flex items-center">
                                 <span class="material-symbols-outlined cart !font-light" style="line-height: 0;">

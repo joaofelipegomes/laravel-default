@@ -28,7 +28,7 @@
                     </div>
                     <div class="py-5 space-y-3">
                         <button type="submit" class="w-full text-white bg-red-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-full text-sm px-5 py-2.5 text-center">Criar conta</button>
-                        <p class="text-sm font-light text-gray-900">Já possui uma conta? <a href="/perfil/entrar" class="font-medium text-primary-600 hover:underline">Entre aqui</a></p>
+                        <p class="text-sm font-light text-gray-900">Já possui uma conta? <a href="/delivery/perfil/entrar" class="font-medium text-primary-600 hover:underline">Entre aqui</a></p>
                     </div>
                 </form>
             </div>
