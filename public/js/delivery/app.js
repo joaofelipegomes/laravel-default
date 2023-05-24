@@ -397,6 +397,8 @@ async function init() {
             document.querySelector('body > div.navigator > ul > li:nth-child(2) > a').addEventListener('click', function(e) {
                 e.preventDefault()
 
+                console.log(localStorage.getItem('bag'))
+
                 fetch('/delivery/localstorage', {
                     method: 'POST',
                     headers: {
