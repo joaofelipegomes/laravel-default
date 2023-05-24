@@ -37,7 +37,7 @@ class CartController extends Controller
       }
     }
 
-    $user = $user ? '/carrinho/entrega' : '/perfil';
+    $user = $user ? '/delivery/carrinho/entrega' : '/delivery/perfil';
 
     $data = deleteCookie('bag');
     $data = getCookies('bag');
@@ -63,7 +63,7 @@ class CartController extends Controller
       }
     }
 
-    $user = $user ? '/carrinho/entrega' : '/perfil';
+    $user = $user ? '/delivery/carrinho/entrega' : '/delivery/perfil';
 
     $data = deleteCookie('bag');
     $data = getCookies('bag');
