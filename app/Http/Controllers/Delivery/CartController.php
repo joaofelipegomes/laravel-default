@@ -42,10 +42,12 @@ class CartController extends Controller
     $data = deleteCookie('bag');
     $data = getCookies('bag');
 
-    return view('delivery.cart.index')
+    dd('oi');
+
+    /*return view('delivery.cart.index')
       ->with('link', $user)
       ->with('trade_name', $trade_name)
-      ->with('bag', json_decode($data));
+      ->with('bag', json_decode($data));*/
   }
 
   public function confirm()
