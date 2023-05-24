@@ -30,10 +30,10 @@ class ProfileController extends Controller
     //echo "User: $user.";
 
     if ($user) {
-      return view('app.profile.index')
+      return view('delivery.profile.index')
         ->with('trade_name', $trade_name);
     } else {
-      return view('app.profile.create.index')
+      return view('delivery.profile.create.index')
         ->with('trade_name', $trade_name);
     }
   }
@@ -52,7 +52,7 @@ class ProfileController extends Controller
       }
     }
 
-    return view('app.profile.login.index')
+    return view('delivery.profile.login.index')
       ->with('trade_name', $trade_name);
   }
 

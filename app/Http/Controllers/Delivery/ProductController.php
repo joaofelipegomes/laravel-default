@@ -41,7 +41,7 @@ class ProductController extends Controller
         );
       }
 
-      return view("app.product.index")
+      return view("delivery.product.index")
         ->with("id", $id)
         ->with("trade_name", $trade_name)
         ->with("product", $product);
@@ -59,7 +59,7 @@ class ProductController extends Controller
       }
     }
 
-    return view("app.search.index")
+    return view("delivery.search.index")
       ->with("trade_name", $trade_name);
   }
 }

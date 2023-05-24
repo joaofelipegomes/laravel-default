@@ -42,7 +42,7 @@ class CartController extends Controller
     $data = deleteCookie('bag');
     $data = getCookies('bag');
 
-    return view('app.cart.index')
+    return view('delivery.cart.index')
       ->with('link', $user)
       ->with('trade_name', $trade_name)
       ->with('bag', json_decode($data));
@@ -68,7 +68,7 @@ class CartController extends Controller
     $data = deleteCookie('bag');
     $data = getCookies('bag');
 
-    return view('app.cart.fee.index')
+    return view('delivery.cart.fee.index')
       ->with('link', $user)
       ->with('trade_name', $trade_name)
       ->with('bag', json_decode($data));

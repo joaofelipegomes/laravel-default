@@ -60,7 +60,7 @@ class HomeController extends Controller
           $header = $getStore["header"];
           $logo = $getStore["logo"];
 
-          return view("app.home.index")
+          return view("delivery.home.index")
             ->with('storename', $store)
             ->with('id', $id)
             ->with('trade_name', $trade_name)
