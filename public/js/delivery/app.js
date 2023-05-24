@@ -655,7 +655,7 @@ async function init() {
     }
 
 
-    //postLocalStorage()
+    postLocalStorage()
     showBody()
 }
 
