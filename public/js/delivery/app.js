@@ -205,7 +205,7 @@ async function init() {
 
     async function storeStatus(store) {
         return new Promise((resolve, reject) => {
-            fetch(`http://inovadelivery-env.eba-pibcpwue.sa-east-1.elasticbeanstalk.com/store/1/status`, {
+            fetch(`http://inovadelivery-env.eba-pibcpwue.sa-east-1.elasticbeanstalk.com/delivery/store/1/status`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json",
