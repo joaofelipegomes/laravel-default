@@ -145,5 +145,5 @@
     </div>
 </div>
 
-<script type="module" src="{{ asset('js/delivery/navigator.js') }}"></script>
+<script src="{{ asset('js/delivery/navigator.js') }}"></script>
 @stop
