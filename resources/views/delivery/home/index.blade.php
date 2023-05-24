@@ -39,7 +39,7 @@
             <div class="group-search">
                 <div class="categories-container">
                     <div class="categories">
-                        <select name="categories-dropdown" onchange="alert('teste')">
+                        <select>
                             @foreach($categories as $category => $c)
                             @if(array_search($c['id'], array_column($products, 'category_id')))
                             <option to="{{ $c['id'] }}">{{ $c["name"] }}</option>
@@ -88,7 +88,7 @@
             <div class="group-search">
                 <div class="categories-container">
                     <div class="categories">
-                        <select>
+                        <select name="categories-dropdown" onchange="alert('teste')">
                             @foreach($categories as $category => $c)
                             <option>{{ $c["name"] }}</option>
                             @endforeach
