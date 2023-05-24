@@ -8,7 +8,7 @@
       <div class="{{ ($count_delayed_payments > 0) ? '' : 'hidden' }} bg-[#eee79a] w-full pl-4 pr-3 pt-3 pb-2.5 rounded-lg items-center grid grid-cols-12 gap-6">
         <div class="col-span-11 sm:col-span-6 flex items-center gap-2 text-[#2e1500]">
           <span class="material-symbols-rounded filled !text-2xl">gpp_maybe</span>
-          <span class="text-sm">{{ $count_delayed_payments }} lojas ainda não realizaram o pagamento da mensalidade</span>
+          <span class="text-sm">{{ $count_delayed_payments }} {{ ($count_delayed_payments > 1) ? 'lojas' : 'loja' }} ainda não realizaram o pagamento da mensalidade</span>
         </div>
         <div class="col-span-1 sm:col-span-6 flex justify-end pr-3">
           <span class="text-sm font-medium cursor-pointer text-zinc-950 hover:opacity-60 transition-all duration-300">Visualizar</span>
