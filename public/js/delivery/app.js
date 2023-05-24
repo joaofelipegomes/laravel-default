@@ -1,6 +1,3 @@
-const date = require('date-and-time');
-const { v4: uuidv4 } = require('uuid');
-
 const swup = new Swup({})
 let eventListener = false
 

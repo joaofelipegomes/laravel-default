@@ -11,6 +11,8 @@
     <script src="https://unpkg.com/swup@3"></script>
     <link href="{{ asset('css/delivery/dist.css') }}" rel="stylesheet">
     <script src="{{ asset('js/delivery/app.js') }}"></script>
+    <script type="module" src="{{ asset('js/delivery/uuid.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-and-time@3.0.0/date-and-time.min.js"></script>
     @yield('header')
 </head>
 
