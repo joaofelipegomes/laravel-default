@@ -250,7 +250,6 @@ async function init() {
         })
 
         document.querySelector('.decrement').addEventListener('click', function() {
-            console.log('entrei')
             const unit = (document.querySelector('.unit').innerHTML === 'un') ? 1 : 50
             const quantity = document.querySelector('.count-container > .count').getAttribute('quantity')
             const amount = document.querySelector('.price').getAttribute('amount')
@@ -656,7 +655,7 @@ async function init() {
     }
 
 
-    postLocalStorage()
+    //postLocalStorage()
     showBody()
 }
 
