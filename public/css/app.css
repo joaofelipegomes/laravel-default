@@ -1,0 +1,1525 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Noto Sans", sans-serif !important;
+  -webkit-tap-highlight-color: transparent;
+  background-color: #ffffff;
+  @apply min-h-screen;
+}
+
+.empty-color {
+  @apply !text-gray-400;
+}
+
+.material-symbols-rounded {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.material-symbols-outlined {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 48;
+}
+
+.filled {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-variation-settings: "FILL" 1, "wght" 200, "GRAD" 0, "opsz" 48 !important;
+}
+
+section.basic {
+  @apply bg-gray-50 min-h-screen;
+}
+
+section.basic > div {
+  @apply flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0;
+}
+
+section.basic > div > div {
+  @apply w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0;
+}
+
+section.basic > div > div > div {
+  @apply p-6 space-y-4 md:space-y-6 sm:p-8;
+}
+
+section.basic > div > div > div > h1 {
+  @apply text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl;
+}
+
+section.basic > div > div > div > div {
+  @apply space-y-4 md:space-y-6;
+}
+
+section.basic > div > div > div > div > div > label {
+  @apply block mb-2 text-sm font-medium text-gray-900;
+}
+
+section.basic > div > div > div > div > div > input {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-300;
+}
+
+.remeber-me-container {
+  @apply flex items-center justify-between;
+}
+
+.remeber-me-container > div > label {
+  @apply relative inline-flex items-center cursor-pointer;
+}
+
+.remeber-me-container > div > label > div {
+  @apply w-11 h-6 bg-gray-50 border border-gray-300 focus:outline-none rounded-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all;
+}
+
+.remeber-me-container > div > label > span {
+  @apply ml-3 text-sm font-medium text-gray-900;
+}
+
+.remeber-me-container > div {
+  @apply flex items-start;
+}
+
+section.basic > div > div > div > div > button {
+  @apply w-full bg-blue-600 hover:opacity-80 text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300;
+}
+
+.snackbar {
+  @apply fixed bottom-0 left-0 w-full justify-center hidden items-center z-40 pt-3 pb-0 opacity-0;
+}
+
+.snackbar > div {
+  @apply h-12 pl-1 pr-4 text-[#f3f6fb] rounded-md text-sm flex justify-center items-center gap-3 font-light;
+}
+
+.snackbar > div.error {
+  @apply bg-[#d3302f] text-white;
+}
+
+.snackbar > div.success {
+  @apply bg-[#313033];
+}
+
+.snackbar > div.warning {
+  @apply bg-[#ff9800];
+}
+
+.snackbar > div > span.material-symbols-outlined {
+  @apply text-2xl;
+}
+
+.animate-shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+main {
+  @apply sm:relative sm:flex min-h-screen pt-0 pb-16 sm:py-0;
+}
+
+section {
+  @apply w-full;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom) !important;
+}
+
+nav {
+  @apply select-none bg-[#f3f6fb] h-auto w-full sm:w-72 sm:min-w-[287px] fixed bottom-0 sm:relative z-[50];
+}
+
+nav > ul {
+  @apply gap-3 sm:min-w-[287px] px-3 pb-7 sm:pt-8 sm:px-4 grid grid-cols-4 sm:grid-cols-1 text-zinc-500 sm:fixed sm:left-0 sm:top-0;
+}
+
+nav > ul > li {
+  @apply sm:hover:bg-[#e5e8ed] rounded-full flex items-center justify-center sm:justify-start py-1.5 sm:pl-3 hover:text-zinc-900 transition-all duration-300 text-sm cursor-pointer;
+}
+
+nav > ul > li[name="favorites"] {
+  @apply sm:hidden flex cursor-pointer;
+}
+
+nav > ul > li[name="stores"],
+li[name="crm"],
+li[name="vacation"],
+li[name="punched-clock"],
+li[name="company"],
+li[name="modules"],
+li[name="products"],
+li[name="nps-result"] {
+  @apply hidden sm:flex cursor-pointer;
+}
+
+nav > ul > li > a {
+  @apply focus:outline-none flex items-center gap-x-3 cursor-pointer w-full justify-center sm:justify-start;
+}
+
+nav > ul > li > a > span.material-symbols-outlined {
+  @apply text-3xl cursor-pointer;
+}
+
+nav > ul > li.active {
+  @apply sm:bg-[#c1e7ff] text-[#001d35];
+}
+
+nav > ul > li.active > a > span.material-symbols-outlined {
+  color: #001d35;
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
+}
+
+nav > ul > li > a:hover > span.material-symbols-outlined {
+  color: #001d35;
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
+  @apply transition-all duration-300;
+}
+
+nav > ul > li > a > span.description {
+  @apply text-sm hidden sm:block;
+}
+
+.search-container {
+  @apply w-full inline-table text-zinc-900;
+}
+
+li[name="logo"] {
+  @apply pb-6 hidden sm:block;
+}
+
+img.logo {
+  @apply max-w-[140px];
+}
+
+img.logo-auth {
+  @apply max-w-[200px] pb-6;
+}
+
+.search-container > div {
+  @apply w-full bg-transparent min-h-full p-4 sm:p-8;
+}
+
+.search-container > div > div.title-page {
+  @apply sm:mt-0 text-2xl font-semibold;
+}
+
+.search-container > div > form {
+  @apply mt-5;
+}
+
+.search-container > div > form > div {
+  @apply grid grid-cols-6 lg:grid-cols-12 gap-3 w-full text-sm text-zinc-900;
+}
+
+.search-container > div > form > div > div.add {
+  @apply col-span-9 flex gap-x-3;
+}
+
+.search-container > div > form > div > div.add > a {
+  @apply col-span-1 select-none text-blue-600 flex justify-center items-center cursor-pointer;
+}
+
+.search-container
+  > div
+  > form
+  > div
+  > div.add
+  > a
+  > span.material-symbols-outlined {
+  @apply !text-3xl;
+}
+
+.search-container
+  > div
+  > form
+  > div
+  > div.add
+  > a:hover
+  > span.material-symbols-outlined {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
+  @apply transition-all duration-300;
+}
+
+.search-container > div > form > div > div.add > div {
+  @apply w-full border border-zinc-300 rounded-2xl px-4 flex items-center gap-x-2;
+}
+
+.search-container > div > form > div > div.add > div > span {
+  @apply text-2xl;
+}
+
+.search-container > div > form > div > div.add > div > input {
+  @apply py-2.5 bg-transparent w-full focus:outline-none;
+}
+
+.search-container > div > form > div > div.filters {
+  @apply col-span-3 sm:col-span-2;
+}
+
+.search-container > div > form > div > div.filters > div {
+  @apply w-full border border-zinc-300 rounded-2xl px-4 flex items-center gap-x-2;
+}
+
+.search-container > div > form > div > div.filters > div > select {
+  @apply py-2.5 bg-transparent w-full focus:outline-none;
+}
+
+.punched-clock {
+  @apply !col-span-full sm:!col-span-7;
+}
+
+.search-container > div > form > div > div.actions {
+  @apply col-span-1 w-full flex items-center gap-x-2 h-full;
+}
+
+.search-container > div > form > div > div.actions > button {
+  @apply py-2 px-4 bg-[#0171e3] hover:opacity-80 rounded-lg text-sm text-white transition-all duration-300;
+}
+
+.number-displayed {
+  @apply py-4 text-zinc-900 text-sm space-y-2 font-normal;
+}
+
+.number-displayed > div {
+  @apply text-sm pb-5;
+}
+
+.number-displayed > div > span.display {
+  @apply font-medium;
+}
+
+.list-of-stores {
+  @apply py-4 sm:py-8 text-zinc-900 text-sm space-y-2;
+}
+
+.list-of-stores > a {
+  @apply gap-x-3 w-full bg-white rounded-2xl px-4 py-3 border border-zinc-100 cursor-pointer grid grid-cols-3 lg:grid-cols-11 items-center outline-0 hover:outline hover:outline-offset-[-3px] hover:outline-4 outline-zinc-400/10 transition-all duration-300;
+}
+
+.list-of-stores > a > div[name="trade-name"] {
+  @apply col-span-3 lg:col-span-4 flex items-center gap-3;
+}
+
+.list-of-stores > a > div[name="trade-name"] > div {
+  @apply font-medium;
+}
+
+.list-of-stores > a > div[name="document-number"] {
+  @apply hidden sm:block sm:col-span-1 lg:col-span-2;
+}
+
+.list-of-stores > a > div[name="priority"] {
+  @apply sm:col-span-1 hidden sm:flex justify-center;
+}
+
+.list-of-stores > a > div[name="phone"] {
+  @apply sm:col-span-2 hidden sm:flex justify-center;
+}
+
+.list-of-stores > a > div[name="contact"] {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @apply sm:col-span-1 hidden sm:block w-full;
+}
+
+.text-hide {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block !important;
+}
+
+.list-of-stores > a > div[name="type"] {
+  @apply sm:col-span-1 hidden sm:flex justify-center;
+}
+
+.list-of-stores > a > div[name="priority"] > div {
+  @apply border border-zinc-500 p-0.5 px-1.5 rounded-lg text-xs;
+}
+
+/*.list-of-stores > a > div[name="priority"] {
+  @apply col-span-1 lg:col-span-1 flex justify-start lg:justify-center;
+}*/
+
+.list-of-stores > a > div[name="key"] {
+  @apply -ml-3 sm:ml-0 col-span-2 lg:col-span-3 justify-start lg:justify-end flex items-center gap-5 sm:gap-3;
+}
+
+.list-of-stores > a > div[name="key"] > button {
+  @apply font-normal py-1 px-3 bg-[#e8e8ed] hover:opacity-80 rounded-lg text-xs duration-300 transition-all;
+}
+
+.list-of-stores > a > div[name="action"] {
+  @apply sm:ml-0 col-span-1 lg:col-span-1 justify-start lg:justify-end flex items-center gap-5 sm:gap-3;
+}
+
+.list-of-stores > a > div[name="action"] > button {
+  @apply font-normal py-1 px-3 bg-[#e8e8ed] hover:opacity-80 rounded-lg text-xs duration-300 transition-all;
+}
+
+.store-container {
+  @apply w-full inline-table text-zinc-900;
+}
+
+.store-container > div {
+  @apply w-full bg-transparent min-h-full p-4 pb-16 sm:p-8 sm:pt-0;
+}
+
+.store-container > div > form > div > div > div.section-title {
+  @apply flex text-2xl font-semibold;
+}
+
+.store-container > div > form > div > div > div.section-title.plus {
+  @apply gap-2;
+}
+
+.store-container > div > form > div > div > div.section-title.plus > a {
+  @apply select-none text-blue-600 flex justify-center items-center cursor-pointer;
+}
+
+.store-container > div > form > div > div > div.section-title.plus > a > span {
+  @apply !text-2xl transition-all duration-300;
+}
+
+.store-container
+  > div
+  > form
+  > div
+  > div
+  > div.section-title.plus
+  > a:hover
+  > span {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 48;
+}
+
+.store-container > div > form > div {
+  @apply space-y-12;
+}
+
+.store-container > div > form > div > .store-info-container {
+  @apply border-b border-gray-900/10 pb-12 select-none;
+}
+
+.store-info-container.no-border {
+  @apply !border-0;
+}
+
+.store-info-container > div {
+  @apply mt-10 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-12;
+}
+
+.store-info-container > div.list {
+  @apply mt-10 gap-3 col-span-full;
+}
+
+.store-info-container > div.list > div {
+  @apply col-span-full grid grid-cols-1 gap-6;
+}
+
+.store-info-container > div.list > div > div {
+  @apply gap-y-1 gap-x-3 w-full bg-white rounded-2xl px-4 py-3 shadow-sm cursor-pointer grid grid-cols-3 lg:grid-cols-11 items-center outline-0 hover:outline hover:outline-offset-[-3px] hover:outline-4 outline-zinc-400/10 transition-all duration-300;
+}
+
+.store-info-container > div.list > div > a {
+  @apply gap-x-3 w-full bg-white rounded-2xl px-4 py-3 shadow-sm cursor-pointer grid grid-cols-12 items-center outline-0 hover:outline hover:outline-offset-[-3px] hover:outline-4 outline-zinc-400/10 transition-all duration-300;
+}
+
+.store-info-container > div.list > div > a > div[name="linked-trade-name"] {
+  @apply col-span-full md:col-span-7 lg:col-span-8 xl:col-span-9 flex items-center gap-3;
+}
+
+.store-info-container
+  > div.list
+  > div
+  > a
+  > div[name="linked-trade-name"]
+  > div {
+  @apply font-medium text-sm whitespace-nowrap overflow-hidden text-ellipsis;
+}
+
+.store-info-container
+  > div.list
+  > div
+  > a
+  > div[name="linked-document-number"] {
+  @apply hidden sm:block col-span-full md:col-span-3 lg:col-span-3 xl:col-span-2 text-sm;
+}
+
+.store-info-container > div.list > div > a > div[name="actions"] {
+  @apply -ml-3 sm:ml-0 col-span-full lg:col-span-1 justify-start lg:justify-end flex items-center gap-5 sm:gap-3;
+}
+
+.store-info-container
+  > div.list
+  > div
+  > a
+  > div[name="actions"]
+  > button.delete {
+  @apply py-1 px-3 bg-transparent border border-white hover:border-red-600 hover:text-red-600 transition-all duration-300 rounded-lg text-xs;
+}
+
+.store-info-container > div.list > div > div > div[name="description"] {
+  @apply col-span-full lg:col-span-2 xl:col-span-4 flex items-center gap-3;
+}
+
+.store-info-container > div.list > div > div > div[name="description"] > div {
+  @apply font-medium text-sm;
+}
+
+.store-info-container > div.list > div > div > div[name="serial"] {
+  @apply hidden sm:block sm:col-span-1 lg:col-span-2 xl:col-span-1 text-sm;
+}
+
+.store-info-container > div.list > div > div > div[name="server"] {
+  @apply sm:col-span-1 hidden sm:flex justify-center;
+}
+
+.store-info-container > div.list > div > div > div[name="server"] > div {
+  @apply border border-zinc-500 p-0.5 px-1.5 rounded-lg text-xs;
+}
+
+.store-info-container > div.list > div > div > div[name="key"] {
+  @apply col-span-2 lg:col-span-2 flex justify-start lg:justify-center text-sm;
+}
+
+.store-info-container > div.list > div > div > div[name="actions"] {
+  @apply ml-0 col-span-4 lg:col-span-4 xl:col-span-3 justify-start lg:justify-end flex items-center gap-3;
+}
+
+.store-info-container
+  > div.list
+  > div
+  > div
+  > div[name="actions"]
+  > button.delete {
+  @apply py-1 px-3 bg-transparent border border-white hover:border-red-600 hover:text-red-600 transition-all duration-300 rounded-lg text-xs;
+}
+
+.store-info-container
+  > div.list
+  > div
+  > div
+  > div[name="actions"]
+  > button.update {
+  @apply font-normal py-1 px-3 bg-[#e8e8ed] hover:opacity-80 rounded-lg text-xs duration-300 transition-all;
+}
+
+.store-info-container
+  > div.list
+  > div
+  > div
+  > div[name="actions"]
+  > button.save {
+  @apply font-normal py-1 px-3 bg-blue-600 text-white hover:opacity-80 rounded-lg text-xs duration-300 transition-all;
+}
+
+.store-info-container > div > div[name="trade-name-container"] {
+  @apply sm:col-span-6;
+}
+
+.store-info-container > div > div[name="trade-name-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container > div > div[name="trade-name-container"] > div > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="line-of-business-container"] {
+  @apply sm:col-span-6;
+}
+
+.store-info-container > div > div[name="line-of-business-container"] > div {
+  @apply mt-2 bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container
+  > div
+  > div[name="line-of-business-container"]
+  > div
+  > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container
+  > div
+  > div[name="line-of-business-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="document-number-container"] {
+  @apply sm:col-span-6;
+}
+
+.store-info-container > div > div[name="document-number-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="document-number-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="priority-container"] {
+  @apply sm:col-span-5;
+}
+
+.store-info-container > div > div[name="priority-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container > div > div[name="priority-container"] > div > ul {
+  @apply flex gap-3 w-full;
+}
+
+.store-info-container
+  > div
+  > div[name="priority-container"]
+  > div
+  > ul
+  > li
+  > input {
+  @apply hidden;
+}
+
+.store-info-container
+  > div
+  > div[name="priority-container"]
+  > div
+  > ul
+  > li
+  > label {
+  @apply text-xs font-medium transition-all duration-300 hover:bg-gray-50 inline-flex justify-center items-center px-2.5 py-2 w-full text-gray-500 rounded-lg border border-gray-200 cursor-pointer;
+}
+
+.store-info-container > div > div[name="plan-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="plan-container"] > div {
+  @apply mt-2 bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="plan-container"] > div > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="cycle-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="cycle-container"] > div {
+  @apply mt-2 bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="cycle-container"] > div > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="amount-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="amount-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container > div > div[name="amount-container"] > div > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="renew-container"] {
+  @apply sm:col-span-4 col-start-1;
+}
+
+.store-info-container > div > div[name="renew-container"] > div {
+  @apply flex gap-x-3;
+}
+
+.store-info-container > div > div[name="renew-container"] > div > div {
+  @apply mt-2 w-full bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="renew-container"] > div > div > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="renew-day-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="renew-day-container"] > div {
+  @apply mt-2 w-full bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="renew-day-container"] > div {
+  @apply mt-2 w-full bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="renew-day-container"] > div > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="due-date-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="due-date-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container > div > div[name="due-date-container"] > div > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container
+  > div
+  > div[name="priority-container"]
+  > div
+  > ul
+  > li
+  > label
+  > div {
+  @apply flex;
+}
+
+.store-info-container
+  > div
+  > div[name="priority-container"]
+  > div
+  > ul
+  > li
+  > inpu
+  > label
+  > div
+  > div {
+  @apply w-full text-xs font-medium flex justify-center;
+}
+
+.store-info-container > div > div[name="subscription-document-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-document-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-document-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="subscription-status-container"] {
+  @apply sm:col-span-12 space-y-6;
+}
+
+.store-info-container > div > div[name="subscription-status-container"] > div {
+  @apply relative flex gap-x-3;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-status-container"]
+  > div
+  > div.checkbox-container {
+  @apply flex h-6 items-center;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-status-container"]
+  > div
+  > div.checkbox-container
+  > input {
+  @apply w-4 h-4 text-blue-600 bg-white checked:bg-blue-600 border-gray-300 rounded focus:ring-blue-600 focus:ring-2 focus:ring-offset-1;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-status-container"]
+  > div
+  > div.info-container {
+  @apply text-sm leading-6;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-status-container"]
+  > div
+  > div.info-container
+  > label {
+  @apply font-medium text-gray-900;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-status-container"]
+  > div
+  > div.info-container
+  > p {
+  @apply text-gray-500;
+  line-height: 1.3rem;
+}
+
+.store-info-container > div > div[name="subscription-amount-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="subscription-amount-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-amount-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="subscription-cycle-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="subscription-cycle-container"] > div {
+  @apply mt-2 bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-cycle-container"]
+  > div
+  > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="subscription-free-trail-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-free-trail-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-free-trail-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="subscription-email-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="subscription-email-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="subscription-email-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="station-server-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="station-server-container"] > div {
+  @apply mt-2 bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container
+  > div
+  > div[name="station-server-container"]
+  > div
+  > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="station-name-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="station-name-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container > div > div[name="station-name-container"] > div > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="station-number-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="station-number-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="station-number-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.label-title {
+  @apply block !text-sm !font-medium leading-6 text-gray-900;
+}
+
+.store-container > div > form > div.actions {
+  @apply mb-[4.7rem] sm:mb-0 fixed bottom-0 right-0 w-full flex items-center justify-end gap-x-3;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(243, 246, 251, 0.8) 50%,
+    rgba(243, 246, 251, 1) 100%
+  );
+}
+
+.store-container > div > form > div.actions > div {
+  @apply p-5 pt-10 flex gap-x-3;
+}
+
+.store-container > div > form > div.actions > div > button.delete {
+  @apply rounded-lg border border-transparent hover:border-red-600 hover:text-red-600 px-4 py-1.5 text-xs font-medium text-gray-900 transition-all duration-300;
+}
+
+.store-container > div > form > div.actions > div > button.cancel {
+  @apply rounded-lg bg-zinc-200 hover:opacity-80 px-4 py-1.5 text-xs font-medium text-gray-900 transition-all duration-300;
+}
+
+.store-container > div > form > div.actions > div > button.save {
+  @apply rounded-lg bg-green-600 px-4 py-1.5 text-xs font-medium text-white shadow-sm hover:opacity-80 focus:outline-none transition-all duration-300;
+}
+
+.station {
+  @apply bg-[#f4f4f6] rounded-xl p-6;
+}
+
+.linked {
+  @apply bg-[#f4f4f6] rounded-xl p-6;
+}
+
+.store-info-container > div > div[name="collaborator-container"] {
+  @apply sm:col-span-6;
+}
+
+.store-info-container > div > div[name="collaborator-container"] > div {
+  @apply mt-2 bg-white rounded-md border border-zinc-300 py-2 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container
+  > div
+  > div[name="collaborator-container"]
+  > div
+  > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div.entire-row {
+  @apply sm:col-span-6 grid grid-cols-12 gap-6;
+}
+
+.store-info-container > div > div[name="date-container"] {
+  @apply sm:col-span-3;
+}
+
+.store-info-container > div > div[name="date-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container > div > div[name="date-container"] > div > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="days-container"] {
+  @apply sm:col-span-6;
+}
+
+.store-info-container > div > div[name="days-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container > div > div[name="days-container"] > div > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="observations-container"] {
+  @apply sm:col-span-6 h-[38px];
+}
+
+.store-info-container > div > div[name="observations-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="observations-container"]
+  > div
+  > textarea {
+  resize: none;
+  @apply h-[38px] block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+a[name="vacation"] {
+  @apply gap-x-3 w-full bg-white rounded-2xl px-4 py-3 grid grid-cols-2 lg:grid-cols-11 items-center outline-0 hover:outline hover:outline-offset-[-3px] hover:outline-4 outline-zinc-400/10 transition-all duration-300;
+}
+
+a[name="vacation"] > div[name="collaborator"] {
+  @apply col-span-2 lg:col-span-3 flex items-center gap-3;
+}
+
+a[name="vacation"] > div[name="start_date"] {
+  @apply col-span-1 flex justify-start lg:justify-center;
+}
+
+a[name="vacation"] > div[name="end_date"] {
+  @apply col-span-1 hidden sm:flex justify-start lg:justify-center;
+}
+
+a[name="vacation"] > div[name="days"] {
+  @apply col-span-1 hidden sm:flex justify-center gap-1;
+}
+
+a[name="vacation"] > div[name="days"] > div {
+  @apply border border-zinc-500 p-0.5 px-1.5 rounded-lg text-xs;
+}
+
+a[name="vacation"] > div[name="observations"] {
+  @apply col-span-1 lg:col-span-2 hidden sm:flex items-center gap-3;
+}
+
+a[name="vacation"] > div[name="actions"] {
+  @apply col-span-2 lg:col-span-3 justify-end lg:justify-end flex items-center gap-3;
+}
+
+a[name="vacation"] > div[name="actions"] > button[name="edit"] {
+  @apply py-1 px-3 bg-[#e8e8ed] hover:opacity-80 transition-all duration-300 rounded-lg text-xs;
+}
+
+a[name="vacation"] > div[name="actions"] > button[name="delete"] {
+  @apply py-1 px-3 bg-transparent border border-white hover:border-red-600 hover:text-red-600 transition-all duration-300 rounded-lg text-xs;
+}
+
+.store-info-container > div > div[name="serial-container"] {
+  @apply sm:col-span-6;
+}
+
+.store-info-container > div > div[name="serial-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container > div > div[name="serial-container"] > div > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="due-date-key-container"] {
+  @apply sm:col-span-6;
+}
+
+.store-info-container > div > div[name="due-date-key-container"] > div {
+  @apply mt-2;
+}
+
+.store-info-container > div > div[name="due-date-key-container"] > div > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+div[name="actions-generate"] {
+  @apply flex col-span-full gap-6;
+}
+
+div[name="actions-generate"] > div {
+  @apply pl-4 pr-3 rounded-lg border border-zinc-300 items-center gap-x-3 flex opacity-0;
+}
+
+div[name="actions-generate"] > div > div {
+  @apply font-medium;
+}
+
+div[name="actions-generate"] > div > span {
+  @apply cursor-pointer;
+}
+
+.button-generate {
+  @apply bg-blue-600 hover:opacity-80 text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300;
+}
+
+.div[name="snackbar"] {
+  @apply mb-[4.7rem] sm:mb-0 fixed bottom-0 right-0 w-full flex items-center justify-end gap-x-3;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(243, 246, 251, 0.8) 50%,
+    rgba(243, 246, 251, 1) 100%
+  );
+}
+
+div.calendar-filter {
+  @apply col-span-3 sm:col-span-2;
+}
+
+div.calendar-filter > div {
+  @apply w-full border border-zinc-300 rounded-2xl px-4 flex items-center gap-x-2;
+}
+
+div.calendar-filter > div > span {
+  @apply text-2xl;
+}
+
+div.calendar-filter > div > input {
+  @apply py-3 bg-transparent w-full focus:outline-none;
+}
+
+div.punched-item {
+  @apply gap-2 w-full bg-white rounded-2xl px-4 py-3 border border-zinc-100 grid grid-cols-2 lg:grid-cols-11 items-center outline-0 hover:outline hover:outline-offset-[-3px] hover:outline-4 outline-zinc-400/10 transition-all duration-300;
+}
+
+div.punched-item > div[name="name"] {
+  @apply col-span-2 lg:col-span-2 flex items-center gap-3;
+}
+
+div.punched-item > div[name="start"] {
+  @apply col-span-1 sm:col-span-2 flex justify-start lg:justify-center;
+}
+
+div.punched-item > div[name="end"] {
+  @apply col-span-1 sm:col-span-2 flex justify-start lg:justify-center;
+}
+
+div.punched-item > div[name="company"] {
+  @apply col-span-2 lg:col-span-2 hidden sm:flex items-center gap-3 justify-center;
+}
+
+div.punched-item > div[name="duration"] {
+  @apply col-span-1 hidden sm:flex justify-center gap-1;
+}
+
+div.punched-item > div[name="amount"] {
+  @apply col-span-1 hidden sm:flex justify-center gap-1;
+}
+
+div.punched-item > div[name="actions"] {
+  @apply col-span-2 sm:col-span-1 justify-end lg:justify-end flex items-center gap-3;
+}
+
+div.punched-item > div[name="actions"] > button {
+  @apply py-1 px-3 bg-[#e8e8ed] hover:opacity-80 transition-all duration-300 rounded-lg text-xs;
+}
+
+div.navigator-favorites > ul {
+  @apply flex flex-col gap-2;
+}
+
+div.navigator-favorites > ul > li > a {
+  @apply gap-2 w-full bg-white rounded-2xl px-4 py-3 border border-zinc-100 flex items-center outline-0 hover:outline hover:outline-offset-[-3px] hover:outline-4 outline-zinc-400/10 transition-all duration-300;
+}
+
+span.status-tip {
+  @apply h-[9px] w-[9px] rounded-full;
+}
+
+.store-info-container > div > div[name="zipcode-container"] {
+  @apply sm:col-span-2;
+}
+
+.store-info-container
+  > div
+  > div[name="zipcode-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="zipcode-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="address-container"] {
+  @apply sm:col-span-8;
+}
+
+.store-info-container
+  > div
+  > div[name="address-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="address-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="house-number-container"] {
+  @apply sm:col-span-2;
+}
+
+.store-info-container
+  > div
+  > div[name="house-number-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="house-number-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="neighborhood-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container
+  > div
+  > div[name="neighborhood-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="neighborhood-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="state-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container > div > div[name="state-container"] > div {
+  @apply mt-2 bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="state-container"] > div > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="city-container"] {
+  @apply sm:col-span-4;
+}
+
+.store-info-container
+  > div
+  > div[name="city-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="city-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="document-container"] {
+  @apply sm:col-span-3;
+}
+
+.store-info-container
+  > div
+  > div[name="document-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="document-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="state-registration-container"] {
+  @apply sm:col-span-3;
+}
+
+.store-info-container
+  > div
+  > div[name="state-registration-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="state-registration-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="corporate-name-container"] {
+  @apply sm:col-span-3;
+}
+
+.store-info-container
+  > div
+  > div[name="corporate-name-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="corporate-name-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="situation-container"] {
+  @apply sm:col-span-3;
+}
+
+.store-info-container > div > div[name="situation-container"] > div {
+  @apply mt-2 bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="situation-container"] > div > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="product-container"] {
+  @apply sm:col-span-3;
+}
+
+.store-info-container > div > div[name="product-container"] > div {
+  @apply mt-2 bg-white rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="product-container"] > div > select {
+  @apply block w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="responsible-container"] {
+  @apply sm:col-span-3;
+}
+
+.store-info-container
+  > div
+  > div[name="responsible-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="responsible-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="phone-container"] {
+  @apply sm:col-span-3;
+}
+
+.store-info-container
+  > div
+  > div[name="phone-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="phone-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.store-info-container > div > div[name="entered-at-container"] {
+  @apply sm:col-span-2;
+}
+
+.store-info-container
+  > div
+  > div[name="entered-at-container"]
+  > div {
+  @apply mt-2;
+}
+
+.store-info-container
+  > div
+  > div[name="entered-at-container"]
+  > div
+  > input {
+  @apply block w-full rounded-md border border-zinc-300 py-1.5 px-3 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 sm:text-sm sm:leading-6;
+}
+
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+.larger-bottom {
+  @apply !pb-24 sm:!pb-44;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+input, select {
+  -webkit-appearance: none;
+}
+
+select {
+  -moz-appearance:none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background-position: calc(100% + 1.1rem) center !important;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="17px" viewBox="0 96 960 960" width="48"><path d="M480 711 240 471l43-43 197 198 197-197 43 43-240 239Z"/></svg>') no-repeat;
+  padding-right: 2rem !important;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+[type="checkbox"],
+[type="radio"] {
+  --tw-shadow: 0 0 #0000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-origin: border-box;
+  border-color: #6b7280;
+  border-width: 1px;
+  color: #1c64f2;
+  display: inline-block;
+  flex-shrink: 0;
+  height: 1rem;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  width: 1rem;
+}
+[type="checkbox"] {
+  border-radius: 0;
+}
+[type="radio"] {
+  border-radius: 100%;
+}
+[type="checkbox"]:focus,
+[type="radio"]:focus {
+  --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
+  --tw-ring-offset-width: 2px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: #1c64f2;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.dark [type="checkbox"]:checked,
+.dark [type="radio"]:checked,
+[type="checkbox"]:checked,
+[type="radio"]:checked {
+  background-color: currentColor;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-color: transparent;
+}
+[type="checkbox"]:checked {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L6.5 9.086l4.293-4.293a1 1 0 0 1 1.414 0z'/%3E%3C/svg%3E");
+}
+[type="radio"]:checked {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='3'/%3E%3C/svg%3E");
+}
+[type="checkbox"]:indeterminate {
+  background-color: currentColor;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3E%3C/svg%3E");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-color: transparent;
+}
+[type="checkbox"]:indeterminate:focus,
+[type="checkbox"]:indeterminate:hover {
+  background-color: currentColor;
+  border-color: transparent;
+}
