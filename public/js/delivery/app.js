@@ -399,7 +399,7 @@ async function init() {
 
                 console.log(localStorage.getItem('bag'))
 
-                fetch('/delivery/localstorage', {
+                fetch('/delivery/api/localstorage', {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json",

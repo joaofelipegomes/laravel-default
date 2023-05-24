@@ -76,7 +76,7 @@ Route::get(
 );
 
 Route::post(
-  '/localstorage',
+  '/api/localstorage',
   [CartController::class, 'set']
 );
 
