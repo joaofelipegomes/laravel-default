@@ -627,7 +627,7 @@ getBadge()
 
 switch(true) {
     case (uri.includes('item')):
-        await storeStatus(getStoreFromURI(uri))
+        storeStatus(getStoreFromURI(uri))
         windowResize()
         sumProduct()
         bagBadge()
@@ -649,7 +649,7 @@ switch(true) {
         navigator()
         scrollNavigator()
         windowResize()
-        isStoreOpen(await storeStatus(getStoreFromURI(uri)))
+        isStoreOpen(storeStatus(getStoreFromURI(uri)))
         break
 }
 
