@@ -59,8 +59,7 @@ class ProductController extends Controller
       }
     }
 
-    dd('oi');
-    /*return view("delivery.search.index")
-      ->with("trade_name", $trade_name);*/
+    return view("delivery.search.index")
+      ->with("trade_name", $trade_name);
   }
 }
