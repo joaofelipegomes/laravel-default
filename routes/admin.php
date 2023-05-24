@@ -21,7 +21,7 @@ Route::middleware(EnsureUserIsLogged::class)->get(
   [AuthController::class, 'userLoggin']
 );
 
-Route::middleware(EnsureUserIsValid::class)->get(
+Route::get(
   '/painel',
   [PanelController::class, 'welcome']
 );
