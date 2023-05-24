@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Delivery;
 
 use App\Http\Controllers\Controller;
 use App\Services\DeliveryRequestService;
@@ -10,139 +10,144 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function profile(Request $request) {
-        $store = session('store');
-        $user = getCookies('user');
+  public function profile(Request $request)
+  {
+    $store = session('store');
+    $user = getCookies('user');
 
-        //setCookies('store', $store);
+    //setCookies('store', $store);
 
-        $deliveryService = new DeliveryRequestService();
+    $deliveryService = new DeliveryRequestService();
 
-        foreach($deliveryService->findStore($store) as $findStore) {
-            foreach($deliveryService->getStore($findStore["id"]) as $getStore) {
-                $id = $getStore["id"];
-                $corporate_name = formatText($getStore["corporate_name"]);
-                $trade_name = formatText($getStore["trade_name"]);
-            }
-        }
-
-        //echo "User: $user.";
-
-        if ($user) {
-            return view('app.profile.index')
-            ->with('trade_name', $trade_name);
-        } else {
-            return view('app.profile.create.index')
-            ->with('trade_name', $trade_name);
-        }
+    foreach ($deliveryService->findStore($store) as $findStore) {
+      foreach ($deliveryService->getStore($findStore["id"]) as $getStore) {
+        $id = $getStore["id"];
+        $corporate_name = formatText($getStore["corporate_name"]);
+        $trade_name = formatText($getStore["trade_name"]);
+      }
     }
 
-    public function login() {
-        $store = session('store');
+    //echo "User: $user.";
 
-        $deliveryService = new DeliveryRequestService();
-
-        foreach($deliveryService->findStore($store) as $findStore) {
-            foreach($deliveryService->getStore($findStore["id"]) as $getStore) {
-                $id = $getStore["id"];
-                $corporate_name = formatText($getStore["corporate_name"]);
-                $trade_name = formatText($getStore["trade_name"]);
-            }
-        }
-
-        return view('app.profile.login.index')
+    if ($user) {
+      return view('app.profile.index')
+        ->with('trade_name', $trade_name);
+    } else {
+      return view('app.profile.create.index')
         ->with('trade_name', $trade_name);
     }
+  }
 
-    public function verifylogin(Request $request) {
-        $store = session('store');
+  public function login()
+  {
+    $store = session('store');
 
-        $credentials = $request->all();
-        $json = [
-            "username" => $credentials["username"],
-            "password" => $credentials["password"],
-        ];
+    $deliveryService = new DeliveryRequestService();
 
-        $deliveryService = new DeliveryRequestService();
-
-        foreach($deliveryService->findStore($store) as $findStore) {
-            foreach($deliveryService->getStore($findStore["id"]) as $getStore) {
-                $id = $getStore["id"];
-                $corporate_name = formatText($getStore["corporate_name"]);
-                $trade_name = formatText($getStore["trade_name"]);
-            }
-        }
-
-        foreach($deliveryService->findUser($json) as $findUser) {
-            $id = $findUser["id"];
-            $authentication = boolval($findUser["authentication"]);
-            $verified = $findUser["verified"];
-
-            setCookies("user", $id);
-
-            return redirect('/perfil')
-                ->with('trade_name', $trade_name);
-        }
+    foreach ($deliveryService->findStore($store) as $findStore) {
+      foreach ($deliveryService->getStore($findStore["id"]) as $getStore) {
+        $id = $getStore["id"];
+        $corporate_name = formatText($getStore["corporate_name"]);
+        $trade_name = formatText($getStore["trade_name"]);
+      }
     }
 
-    public function createUser(Request $request) {
-        $store = session('store');
+    return view('app.profile.login.index')
+      ->with('trade_name', $trade_name);
+  }
 
-        $credentials = $request->all();
-        $json = [
-            "name" => $credentials["name"],
-            "email" => $credentials["email"],
-            "phone" => $credentials["phone"],
-            "password" => $credentials["password"],
-        ];
+  public function verifylogin(Request $request)
+  {
+    $store = session('store');
 
-        $deliveryService = new DeliveryRequestService();
+    $credentials = $request->all();
+    $json = [
+      "username" => $credentials["username"],
+      "password" => $credentials["password"],
+    ];
 
-        foreach($deliveryService->findStore($store) as $findStore) {
-            foreach($deliveryService->getStore($findStore["id"]) as $getStore) {
-                $id = $getStore["id"];
-                $corporate_name = formatText($getStore["corporate_name"]);
-                $trade_name = formatText($getStore["trade_name"]);
-            }
-        }
+    $deliveryService = new DeliveryRequestService();
 
-        $deliveryService->createUser($json);
-        $json_find = [
-            "username" => $credentials["email"],
-            "password" => $credentials["password"],
-        ];
-
-        foreach($deliveryService->findUser($json_find) as $findUser) {
-            $id = $findUser["id"];
-            $authentication = boolval($findUser["authentication"]);
-            $verified = $findUser["verified"];
-
-            setCookies("user", $id);
-
-            return redirect('/perfil')
-                ->with('trade_name', $trade_name);
-        }
+    foreach ($deliveryService->findStore($store) as $findStore) {
+      foreach ($deliveryService->getStore($findStore["id"]) as $getStore) {
+        $id = $getStore["id"];
+        $corporate_name = formatText($getStore["corporate_name"]);
+        $trade_name = formatText($getStore["trade_name"]);
+      }
     }
 
-    public function logout() {
-        $store = session('store');
-        deleteCookie("user");
+    foreach ($deliveryService->findUser($json) as $findUser) {
+      $id = $findUser["id"];
+      $authentication = boolval($findUser["authentication"]);
+      $verified = $findUser["verified"];
 
-        Cookie::queue(
-            Cookie::forget('user')
-        );
+      setCookies("user", $id);
 
-        $deliveryService = new DeliveryRequestService();
-
-        foreach($deliveryService->findStore($store) as $findStore) {
-            foreach($deliveryService->getStore($findStore["id"]) as $getStore) {
-                $id = $getStore["id"];
-                $corporate_name = formatText($getStore["corporate_name"]);
-                $trade_name = formatText($getStore["trade_name"]);
-            }
-        }
-
-        return redirect('/perfil')
-                ->with('trade_name', $trade_name);
+      return redirect('/perfil')
+        ->with('trade_name', $trade_name);
     }
+  }
+
+  public function createUser(Request $request)
+  {
+    $store = session('store');
+
+    $credentials = $request->all();
+    $json = [
+      "name" => $credentials["name"],
+      "email" => $credentials["email"],
+      "phone" => $credentials["phone"],
+      "password" => $credentials["password"],
+    ];
+
+    $deliveryService = new DeliveryRequestService();
+
+    foreach ($deliveryService->findStore($store) as $findStore) {
+      foreach ($deliveryService->getStore($findStore["id"]) as $getStore) {
+        $id = $getStore["id"];
+        $corporate_name = formatText($getStore["corporate_name"]);
+        $trade_name = formatText($getStore["trade_name"]);
+      }
+    }
+
+    $deliveryService->createUser($json);
+    $json_find = [
+      "username" => $credentials["email"],
+      "password" => $credentials["password"],
+    ];
+
+    foreach ($deliveryService->findUser($json_find) as $findUser) {
+      $id = $findUser["id"];
+      $authentication = boolval($findUser["authentication"]);
+      $verified = $findUser["verified"];
+
+      setCookies("user", $id);
+
+      return redirect('/perfil')
+        ->with('trade_name', $trade_name);
+    }
+  }
+
+  public function logout()
+  {
+    $store = session('store');
+    deleteCookie("user");
+
+    Cookie::queue(
+      Cookie::forget('user')
+    );
+
+    $deliveryService = new DeliveryRequestService();
+
+    foreach ($deliveryService->findStore($store) as $findStore) {
+      foreach ($deliveryService->getStore($findStore["id"]) as $getStore) {
+        $id = $getStore["id"];
+        $corporate_name = formatText($getStore["corporate_name"]);
+        $trade_name = formatText($getStore["trade_name"]);
+      }
+    }
+
+    return redirect('/perfil')
+      ->with('trade_name', $trade_name);
+  }
 }

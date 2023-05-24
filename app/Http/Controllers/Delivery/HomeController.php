@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Delivery;
 
 use Illuminate\Support\Facades\Route;
 use App\Services\DeliveryRequestService;
