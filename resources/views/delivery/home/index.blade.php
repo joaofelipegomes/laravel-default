@@ -42,7 +42,7 @@
                         <select name="categories-dropdown">
                             @foreach($categories as $category => $c)
                             @if(array_search($c['id'], array_column($products, 'category_id')))
-                            <option to="$c['id']">{{ $c["name"] }}</option>
+                            <option to="{{ $c['id'] }}">{{ $c["name"] }}</option>
                             @endif
                             @endforeach
                         </select>
