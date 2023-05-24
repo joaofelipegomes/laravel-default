@@ -12,7 +12,7 @@ class CartController extends Controller
 {
   public function show()
   {
-    return view('api.localstorage');
+    return view('api.delivery.localstorage');
   }
 
   public function set(Request $request)
