@@ -39,10 +39,10 @@
             <div class="group-search">
                 <div class="categories-container">
                     <div class="categories">
-                        <select>
+                        <select name="categories-dropdown">
                             @foreach($categories as $category => $c)
                             @if(array_search($c['id'], array_column($products, 'category_id')))
-                            <option>{{ $c["name"] }}</option>
+                            <option to="$c['id']">{{ $c["name"] }}</option>
                             @endif
                             @endforeach
                         </select>
@@ -144,4 +144,6 @@
         </div>
     </div>
 </div>
+
+<script type="module" src="{{ asset('js/delivery/navigator.js') }}"></script>
 @stop
