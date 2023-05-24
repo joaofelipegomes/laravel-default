@@ -25,21 +25,21 @@
 <div class="navigator">
     <ul class="menu-container">
         <li>
-            <a href="/{{ session('store') }}">
+            <a href="/delivery/{{ session('store') }}">
                 <span class="material-symbols-outlined search">
                     search
                 </span>
             </a>
         </li>
         <li>
-            <a href="/carrinho">
+            <a href="/delivery/carrinho">
                 <span class="material-symbols-outlined cart">
                     local_mall
                 </span>
             </a>
         </li>
         <li>
-            <a href="/perfil" class="profile">
+            <a href="/delivery/perfil" class="profile">
                 <span class="material-symbols-outlined account">
                     account_circle
                 </span>

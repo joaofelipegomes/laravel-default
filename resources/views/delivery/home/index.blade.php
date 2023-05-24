@@ -18,7 +18,7 @@
         <div class="search-container">
             <div class="search">
                 <div>{{ $trade_name }}</div>
-                <a href="/{{ getCookies('store') }}/buscar">
+                <a href="/delivery/{{ getCookies('store') }}/buscar">
                     <span class="material-symbols-outlined">
                         search
                     </span>
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="search-container sm:block hidden">
-                    <a href="/{{ getCookies('store') }}/buscar" class="search">
+                    <a href="/delivery/{{ getCookies('store') }}/buscar" class="search">
                         <span class="material-symbols-outlined">
                             search
                         </span>
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="search-container">
-                    <a href="/{{ getCookies('store') }}/buscar" class="search">
+                    <a href="/delivery/{{ getCookies('store') }}/buscar" class="search">
                         <span class="material-symbols-outlined">
                             search
                         </span>
@@ -118,7 +118,7 @@
                     <div class="group-products">
                         @foreach($products as $product => $p)
                         @if($p["category_id"] === $c["id"])
-                        <a href="/{{ $storename }}/item/{{ convertToNumber($p['id']) }}" class="product" id="{{ $p['id'] }}">
+                        <a href="/delivery/{{ $storename }}/item/{{ convertToNumber($p['id']) }}" class="product" id="{{ $p['id'] }}">
                             <div class="product-info">
                                 <div class="name">{{ $p["name"] }}</div>
                                 <div class="description">{{ $p["description"] }}</div>
