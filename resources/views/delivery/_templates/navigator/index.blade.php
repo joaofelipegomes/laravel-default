@@ -32,7 +32,7 @@
             </a>
         </li>
         <li>
-            <a href="/delivery/carrinhso">
+            <a href="/delivery/carrinho">
                 <span class="material-symbols-outlined cart">
                     local_mall
                 </span>
