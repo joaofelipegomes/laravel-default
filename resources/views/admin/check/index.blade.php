@@ -1,5 +1,5 @@
 @extends('admin._templates.basic.index')
-@section('title', 'Verificar loja')
+@section('title', 'Pagamento')
 
 @section('body')
 <section class="basic">
@@ -13,7 +13,7 @@
             <input type="text" name="document-number-check" placeholder="" required="" autocomplete="off" value="{{ $document }}">
           </div>
 
-          <button type="button" name="submit">Verificar</button>
+          <button type="button" name="submit">Buscar</button>
         </div>
       </div>
     </div>
