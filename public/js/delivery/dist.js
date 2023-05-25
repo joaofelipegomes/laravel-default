@@ -5,8 +5,6 @@ const badge = () => {
   let routeParametersRegex = String(location.pathname).split('/')
   console.log(routeParametersRegex)
 
-  parser.href = window.location.href
-
   if (bagLocalStorage) {
     console.log(bagLocalStorage.store, routeParametersRegex)
     if (bagLocalStorage.store === routeParametersRegex[2]) {
