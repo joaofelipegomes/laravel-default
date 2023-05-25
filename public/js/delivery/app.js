@@ -3,6 +3,7 @@ let eventListener = false
 
 async function init() {
     function windowResize() {
+      console.log('windowResize')
         let content_padding = 0
         const content_width = window.innerWidth
         const main_container = document.getElementsByClassName('main-container')[0]
@@ -37,6 +38,7 @@ async function init() {
     }
 
     function showBody() {
+      console.log('showBody')
         window.addEventListener('resize', function(e) {
             windowResize()
         })
@@ -51,6 +53,7 @@ async function init() {
     }
 
     function navigator() {
+      console.log('navigator')
         const menu_items = document.querySelectorAll('.menu-container > li > a')
 
         menu_items.forEach(function (element) {
@@ -101,6 +104,7 @@ async function init() {
     }
 
     function scrollNavigator() {
+      console.log('scrollNavigator')
         var $navigationLinks = $('.scroll-navigator > div > a')
         var $sections = $($(".content > section").get().reverse())
 
@@ -196,6 +200,7 @@ async function init() {
     }
 
     function getStoreFromURI(uri) {
+      console.log('getStoreFromURI')
         let parser = document.createElement('a')
         parser.href = uri
         let routeParametersRegex = parser.pathname.split('/')
@@ -204,6 +209,7 @@ async function init() {
     }
 
     async function storeStatus(store) {
+      console.log('storeStatus')
         return new Promise((resolve, reject) => {
             fetch(`https://api.inovasistemas.app/delivery/store/1/status`, {
                 method: 'GET',
@@ -219,6 +225,7 @@ async function init() {
     }
 
     function isStoreOpen(data) {
+      console.log('isStoreOpen')
         const status = document.querySelector('.info > .open')
         status.setAttribute('class', '')
 
@@ -235,6 +242,7 @@ async function init() {
     }
 
     function sumProduct() {
+      console.log('sumProduct')
         document.querySelector('.increment').addEventListener('click', function() {
             const unit = (document.querySelector('.unit').innerHTML === 'un') ? 1 : 50
             const quantity = document.querySelector('.count-container > .count').getAttribute('quantity')
@@ -269,7 +277,7 @@ async function init() {
     }
 
     function bagBadge() {
-
+      console.log('bagBadge')
         document.querySelector('.product-cart > button').addEventListener('click', function() {
             const badge = document.querySelector('body > div.bag > .badge')
             const paramsJSON = {}
@@ -336,6 +344,7 @@ async function init() {
     }
 
     function getBadge() {
+      console.log('getBadge')
         let parser = document.createElement('a')
         parser.href = window.location.href
         let routeParametersRegex = parser.pathname.split('/')
@@ -361,6 +370,7 @@ async function init() {
     }
 
     function hideBadge() {
+      console.log('hideBadge')
         const badge = document.querySelector('body > div.bag > .badge')
 
         if (!badge.classList.contains('hide')) {
@@ -370,6 +380,7 @@ async function init() {
     }
 
     function hideBadgeCart() {
+      console.log('hideBadgeCart')
         const badge = document.querySelector('body > .bag-continue')
 
         if (badge) {
@@ -381,6 +392,7 @@ async function init() {
     }
 
     function showBadgeCart() {
+      console.log('showBadgeCart')
         const badge = document.querySelector('body > .bag-continue')
 
         if (badge) {
@@ -392,6 +404,7 @@ async function init() {
     }
 
     function postLocalStorage() {
+      console.log('postLocalStorage')
         if (!eventListener) {
             document.querySelector('body > div.navigator > ul > li:nth-child(2) > a').addEventListener('click', function(e) {
                 e.preventDefault()
@@ -414,6 +427,7 @@ async function init() {
     }
 
     function getItemsFromLocal() {
+      console.log('getItemsFromLocal')
         let parser = document.createElement('a')
         parser.href = window.location.href
         let routeParametersRegex = parser.pathname.split('/')
@@ -471,6 +485,7 @@ async function init() {
     }
 
     function setNatigatorWeight(uri) {
+      console.log('setNatigatorWeight')
         const menus = document.querySelectorAll('.active')
         menus.forEach(menu => {
             menu.classList.remove('active')
@@ -490,6 +505,7 @@ async function init() {
     }
 
     function editItems() {
+      console.log('editItems')
         const countersDecrement = document.querySelectorAll('.decrement')
         const countersIncrement = document.querySelectorAll('.increment')
 
@@ -555,6 +571,7 @@ async function init() {
     }
 
     function updateCart() {
+      console.log('updateCart')
         let amountTotal = 0
         let quantityItems = 0
         const items = JSON.parse(localStorage.getItem('bag'))
@@ -605,6 +622,7 @@ async function init() {
     }
 
     function verifyUser() {
+      console.log('verifyUser')
         if (document.querySelector('.bag-continue > div')) {
             const button = document.querySelector('.bag-continue > div').addEventListener('click', function() {
                 const cartJSON = JSON.parse(localStorage.getItem('bag'))
