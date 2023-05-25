@@ -109,4 +109,6 @@
         </div>
     </div>
 </div>
+
+<script src="{{ asset('js/delivery/product.js') }}"></script>
 @stop
