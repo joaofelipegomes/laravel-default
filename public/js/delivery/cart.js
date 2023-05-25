@@ -119,7 +119,6 @@ const editItems = () => {
 }
 
 const updateCart = () => {
-  console.log('oi')
   const bagJSON = {}
   const items = JSON.parse(localStorage.getItem('bag'))
   const itemsOnCart = document.querySelectorAll('.product')
@@ -184,5 +183,6 @@ const verifyUser = () => {
 
 (async () => {
   createCartItems()
+  editItems()
   verifyUser()
 })()
