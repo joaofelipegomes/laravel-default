@@ -5,12 +5,12 @@ const badge = () => {
   routeParametersRegex.href = window.location.href;
   routeParametersRegex = String(routeParametersRegex.pathname).split('/')
 
-  console.log(bagLocalStorage.quantity)
-
   if (bagLocalStorage) {
     if (bagLocalStorage.store === routeParametersRegex[2]) {
       const badgeItemsQuantity = bagLocalStorage.quantity
       const badgeItemsAmount = bagLocalStorage.amount
+
+      console.log(badgeItemsQuantity)
 
       if (badgeItemsQuantity > 0) {
         document.querySelector('body > div.bag > div > div.icon > div > span.quantity').innerHTML = badgeItemsQuantity
