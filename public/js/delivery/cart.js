@@ -7,7 +7,6 @@ const createCartItems = () => {
   parser.href = window.location.href
 
   if (items) {
-    console.log('tem itens')
     document.querySelector('.total').classList.add('show')
     document.querySelector('.total').classList.remove('hide')
 
