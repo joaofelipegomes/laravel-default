@@ -5,7 +5,7 @@
 <div id="swup" class="main-container no-padding swup-transition-fade">
     <div class="item-container">
         <div class="back-container">
-            <a href="/{{ getCookies('store') }}" class="back-navigator">
+            <a href="/delivery/{{ getCookies('store') }}" class="back-navigator">
                 <span class="material-symbols-outlined weight">
                     arrow_back_ios
                 </span>
