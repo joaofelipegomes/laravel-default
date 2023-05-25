@@ -44,13 +44,13 @@ const bagBadge = () => {
     let routeParametersRegex = parser.pathname.split('/')
 
     const id = routeParametersRegex[4]
-    const name = document.querySelector('#swup > div > div.item-details > div.product-info > div.name').innerHTML
-    const image = document.querySelector('#swup > div > div.item-image').style.backgroundImage
-    const quantity = document.querySelector('#swup > div > div.item-details > div.product-cart > div > div > div').getAttribute('quantity')
-    const amount = parseFloat((document.querySelector('#swup > div > div.item-details > div.product-cart > button > span.money').innerHTML).replace('R$ ', '').replace('.', '').replace(',', '.').replace('R$&nbsp;', ''))
+    const name = document.querySelector('.main-container > div > div.item-details > div.product-info > div.name').innerHTML
+    const image = document.querySelector('.main-container > div > div.item-image').style.backgroundImage
+    const quantity = document.querySelector('.main-container > div > div.item-details > div.product-cart > div > div > div').getAttribute('quantity')
+    const amount = parseFloat((document.querySelector('.main-container > div > div.item-details > div.product-cart > button > span.money').innerHTML).replace('R$ ', '').replace('.', '').replace(',', '.').replace('R$&nbsp;', ''))
     const unit = (document.querySelector('.counter').getAttribute('x-data') === '{ count: 50 }') ? 'KG' : 'UN'
     const price = parseFloat((document.querySelector('.product-info > .price').innerHTML).replace('R$ ', '').replace('.', '').replace(',', '.').replace('R$&nbsp;', ''))
-    const observations = document.querySelector('#swup > div > div.item-details > div.comments > div.text > textarea').value
+    const observations = document.querySelector('.main-container > div > div.item-details > div.comments > div.text > textarea').value
 
     paramsJSON['id'] = id
     paramsJSON['name'] = name
@@ -96,7 +96,7 @@ const bagBadge = () => {
       badge.classList.add('show')
     }
 
-    document.querySelector('#swup > div > div.back-container > a').click()
+    document.querySelector('.main-container > div > div.back-container > a').click()
   })
 }
 
