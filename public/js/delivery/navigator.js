@@ -1,6 +1,6 @@
 $(document).ready(function () {
   document.querySelector('select[name="categories-dropdown-mask"]').addEventListener('change', function() {
-    document.querySelector('select[name="categories-dropdown"]').value = document.querySelector('select[name="categories-dropdown"]-mask').value
+    document.querySelector('select[name="categories-dropdown"]').value = document.querySelector('select[name="categories-dropdown-mask"]').value
   })
 
   /*document.querySelector('select[name="categories-dropdown-mask"]').addEventListener('change', function() {
