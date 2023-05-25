@@ -2,7 +2,7 @@
 @extends('delivery._templates.default.index')
 
 @section('body')
-<div class="main-container no-padding swup-transition-fade">
+<div id="swup" class="main-container no-padding swup-transition-fade">
   <div class="item-container">
     <div class="back-container">
       <a href="/delivery/{{ getCookies('store') }}" class="back-navigator">
