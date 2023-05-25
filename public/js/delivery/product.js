@@ -45,7 +45,7 @@ const bagBadge = () => {
 
     const id = routeParametersRegex[4]
     const name = document.querySelector('#swup > div > div.item-details > div.product-info > div.name').innerHTML
-    const image = (document.querySelector('#swup > div > div.item-image').style.backgroundImage) ? document.querySelector('#swup > div > div.item-image').style.backgroundImage : null
+    const image = (document.querySelector('#swup > div > div.item-image')) ? document.querySelector('#swup > div > div.item-image').style.backgroundImage : null
     const quantity = document.querySelector('#swup > div > div.item-details > div.product-cart > div > div > div').getAttribute('quantity')
     const amount = parseFloat((document.querySelector('#swup > div > div.item-details > div.product-cart > button > span.money').innerHTML).replace('R$ ', '').replace('.', '').replace(',', '.').replace('R$&nbsp;', ''))
     const unit = (document.querySelector('.counter').getAttribute('x-data') === '{ count: 50 }') ? 'KG' : 'UN'
