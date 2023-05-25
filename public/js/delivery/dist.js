@@ -98,6 +98,50 @@ const storeStatus = async () => {
   })
 }
 
+const navigator = async () => {
+  const menu_items = document.querySelectorAll('.menu-container > li > a')
+
+  menu_items.forEach(function (element) {
+    element.addEventListener('click', function (e) {
+      const span_list = document.querySelectorAll('.menu-container > li > a > span')
+
+      span_list.forEach(function (element) {
+        element.classList.remove('active')
+
+        if (element.innerHTML.trim() === 'search') {
+          element.classList.remove('weight')
+        }
+      })
+
+      if (e.target.innerHTML.trim() === 'search') {
+        e.target.classList.add('weight')
+      } else {
+        e.target.classList.add('active')
+      }
+    })
+  })
+}
+
+const onScrollTopBar = async () => {
+  if (document.getElementById('fixednavigator')) {
+    if (document.body.scrollTop > 180 || document.documentElement.scrollTop > 180) {
+      document.getElementById('fixednavigator').style.display = 'block'
+      document.getElementById('fixednavigator').style.marginTop = '0px'
+    } else {
+      document.getElementById('fixednavigator').style.marginTop = '-100px'
+      document.getElementById('fixednavigator').style.marginTop = '-200px'
+    }
+  }
+
+  if (document.getElementsByClassName('back-container')[0]) {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+      document.getElementsByClassName('back-container')[0].classList.add('bg-[#fffbfe]')
+    } else {
+      document.getElementsByClassName('back-container')[0].classList.remove('bg-[#fffbfe]')
+    }
+  }
+}
+
 const windowResize = () => {
   const back_container = document.getElementsByClassName('back-container')[0]
   const content_width = window.innerWidth
@@ -134,9 +178,14 @@ const windowResize = () => {
 
 (async () => {
   $(window).scrollTop(0, 0)
+  navigator()
   navigatorWeight(window.location.href)
   badge()
   displayView()
+
+  window.onscroll = function () {
+    onScrollTopBar()
+  }
 })()
 
 
