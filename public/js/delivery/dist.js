@@ -1,9 +1,9 @@
 const badge = () => {
   const badge = document.querySelector('body > div.bag > .badge')
   const bagLocalStorage = JSON.parse(localStorage.getItem('bag'))
-  let parser = document.createElement('a')
-  let routeParametersRegex = parser.pathname.split('/')
-  console.log(window.location.href)
+  const location = window.location.href
+  let routeParametersRegex = location.pathname.split('/')
+  console.log(routeParametersRegex)
 
   parser.href = window.location.href
 
