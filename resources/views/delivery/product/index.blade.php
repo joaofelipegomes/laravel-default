@@ -93,4 +93,5 @@
 </div>
 
 <script type="module" src="{{ asset('js/delivery/product.js') }}"></script>
+</div>
 @stop
