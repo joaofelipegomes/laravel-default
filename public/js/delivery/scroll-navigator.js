@@ -24,6 +24,7 @@ const highlightNavigation = () => {
 
     if (scrollPosition + 170 >= sectionTop) {
       var id = currentSection.attr('id');
+      console.log(id)
       var $navigationLink = sectionIdTonavigationLink[id];
 
       if (!document.querySelector('.clicked')) {
@@ -53,7 +54,6 @@ const getOffset = (el) => {
   }
   return { top: _y, left: _x };
 }
-
 
 var $navigationLinks = $('.scroll-navigator > div > a')
 var $sections = $($('.content > section').get().reverse())
