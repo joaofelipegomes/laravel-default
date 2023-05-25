@@ -1,9 +1,11 @@
 const badge = () => {
   const badge = document.querySelector('body > div.bag > .badge')
   const bagLocalStorage = JSON.parse(localStorage.getItem('bag'))
-  const location = window.location.href
-  let routeParametersRegex = String(location.pathname)
-  console.log(routeParametersRegex)
+
+  let l = document.createElement('a')
+  l.href = window.location.href;
+
+  console.log(l)
 
   if (bagLocalStorage === 1) {
     console.log(bagLocalStorage.store, routeParametersRegex)
