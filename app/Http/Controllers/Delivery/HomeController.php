@@ -22,6 +22,7 @@ class HomeController extends Controller
 
         foreach ($deliveryService->getStore($findStore["id"]) as $getStore) {
           $categories = [];
+          $categoriesProducts = [];
           $products = [];
 
           foreach ($deliveryService->getCategories($findStore["id"]) as $category) {
@@ -42,6 +43,15 @@ class HomeController extends Controller
               "family_id" => $product["family_id"],
               "image" => $product["image"],
             );
+          }
+
+          foreach ($categories as $category => $c) {
+            if (array_search($c['id'], array_column($products, 'category_id'))) {
+              $categoriesProducts[] = array(
+                "id" => $c['id'],
+                "name" => $c['name']
+              );
+            }
           }
 
           $id = $getStore["id"];
@@ -66,7 +76,7 @@ class HomeController extends Controller
             ->with('trade_name', $trade_name)
             ->with('logo', $logo)
             ->with('header', $header)
-            ->with('categories', $categories)
+            ->with('categories', $categoriesProducts)
             ->with('products', $products);
         }
       }
