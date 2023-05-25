@@ -3,9 +3,10 @@ const badge = () => {
   const bagLocalStorage = JSON.parse(localStorage.getItem('bag'))
   let routeParametersRegex = document.createElement('a')
   routeParametersRegex.href = window.location.href;
+  routeParametersRegex = String(routeParametersRegex.pathname).split('/')
 
   if (bagLocalStorage) {
-    console.log(bagLocalStorage.store, routeParametersRegex)
+    console.log(bagLocalStorage.store, routeParametersRegex[1])
     if (bagLocalStorage.store === routeParametersRegex[1]) {
 
       const badgeItemsQuantity = bagLocalStorage.quantity
