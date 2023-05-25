@@ -10,15 +10,15 @@ const badge = () => {
       const badgeItemsQuantity = bagLocalStorage.quantity
       const badgeItemsAmount = bagLocalStorage.amount
 
-      console.log(badgeItemsQuantity)
-
       if (badgeItemsQuantity > 0) {
-        document.querySelector('body > div.bag > div > div.icon > div > span.quantity').innerHTML = badgeItemsQuantity
-        document.querySelector('body > div.bag > div > div.price > span').innerHTML = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(badgeItemsAmount)
+        if (document.querySelector('body > div.bag > div > div.icon > div > span.quantity')) {
+          document.querySelector('body > div.bag > div > div.icon > div > span.quantity').innerHTML = badgeItemsQuantity
+          document.querySelector('body > div.bag > div > div.price > span').innerHTML = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(badgeItemsAmount)
 
-        if (badge.classList.contains('hide')) {
-          badge.classList.remove('hide')
-          badge.classList.add('show')
+          if (badge.classList.contains('hide')) {
+            badge.classList.remove('hide')
+            badge.classList.add('show')
+          }
         }
       }
     }
