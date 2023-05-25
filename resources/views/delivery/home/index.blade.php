@@ -145,5 +145,6 @@
     </div>
 </div>
 
+<script src="{{ asset('js/delivery/home.js') }}"></script>
 <script src="{{ asset('js/delivery/navigator.js') }}"></script>
 @stop
