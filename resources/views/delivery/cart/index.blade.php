@@ -51,5 +51,7 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/delivery/cart.js') }}"></script>
 </div>
 @stop
