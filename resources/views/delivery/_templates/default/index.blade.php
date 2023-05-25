@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
     <link href="{{ asset('css/delivery/dist.css') }}" rel="stylesheet">
-    <script type="module" src="{{ asset('js/delivery/app.js') }}"></script>
+    <script type="module" src="{{ asset('js/delivery/dist.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/date-and-time@3.0.0/date-and-time.min.js"></script>
     @yield('header')
 </head>
