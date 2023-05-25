@@ -6,9 +6,7 @@ const badge = () => {
   routeParametersRegex = String(routeParametersRegex.pathname).split('/')
 
   if (bagLocalStorage) {
-    console.log(bagLocalStorage.store, routeParametersRegex[2])
     if (bagLocalStorage.store === routeParametersRegex[2]) {
-
       const badgeItemsQuantity = bagLocalStorage.quantity
       const badgeItemsAmount = bagLocalStorage.amount
 
