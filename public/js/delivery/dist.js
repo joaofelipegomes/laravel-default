@@ -3,7 +3,7 @@ const badge = () => {
   const bagLocalStorage = JSON.parse(localStorage.getItem('bag'))
   let parser = document.createElement('a')
   let routeParametersRegex = parser.pathname.split('/')
-  console.log(parser.pathname)
+  console.log(window.location.href)
 
   parser.href = window.location.href
 
