@@ -49,7 +49,7 @@
         <div class="amount">R$ 0,00</div>
       </div>
 
-      <div class="empty-cart">
+      <div class="empty-cart hide">
         Sacola vazia
       </div>
     </div>
