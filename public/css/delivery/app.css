@@ -238,6 +238,10 @@ body {
   @apply bg-zinc-900 text-white;
 }
 
+.search-details {
+  @apply bg-[#fffbfe] w-full h-full min-h-[100vh] p-6 rounded-t-2xl;
+}
+
 .item-details {
   @apply bg-[#fffbfe] w-full min-h-[500px] p-6 rounded-t-2xl mt-3;
 }

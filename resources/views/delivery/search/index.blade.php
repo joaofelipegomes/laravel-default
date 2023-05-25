@@ -12,8 +12,7 @@
             </a>
         </div>
 
-        <div class="item-image"></div>
-        <div class="item-details">
+        <div class="search-details">
         </div>
     </div>
 </div>
