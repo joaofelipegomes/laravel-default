@@ -99,4 +99,6 @@ const bagBadge = () => {
 }
 
 (async () => {
+  sumProducts()
+  bagBadge()
 })()
