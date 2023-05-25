@@ -24,8 +24,10 @@ const highlightNavigation = () => {
 
     if (scrollPosition + 170 >= sectionTop) {
       var id = currentSection.attr('id');
-      console.log(id)
       var $navigationLink = sectionIdTonavigationLink[id];
+
+      document.querySelector('select[name="categories-dropdown"]').value = id
+      document.querySelector('select[name="categories-dropdown-mask"]').value = id
 
       if (!document.querySelector('.clicked')) {
         if (!$navigationLink.hasClass('active')) {
