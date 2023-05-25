@@ -1,15 +1,15 @@
 $(document).ready(function () {
-  document.querySelector('select[name="categories-dropdown"]').addEventListener('change', function() {
-    document.querySelector('select[name="categories-dropdown-mask"]').value = document.querySelector('select[name="categories-dropdown-mask"]').value
+  document.querySelector('select[name="categories-dropdown-mask"]').addEventListener('change', function() {
+    document.querySelector('select[name="categories-dropdown"]').value = document.querySelector('select[name="categories-dropdown"]-mask').value
   })
 
-  document.querySelector('select[name="categories-dropdown-mask"]').addEventListener('change', function() {
+  /*document.querySelector('select[name="categories-dropdown-mask"]').addEventListener('change', function() {
     const section = document.querySelector('select[name="categories-dropdown"]').value
     var { top } = getOffset(document.getElementById(section))
     var { left } = 0
 
     window.scrollTo({ left: 0, top: top - 125, behavior: 'smooth' })
-  })
+  })*/
 })
 
 function getOffset( el ) {
