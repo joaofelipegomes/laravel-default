@@ -11,6 +11,7 @@
                 </span>
             </a>
         </div>
+      </div>
 
         <div class="search-details">
           <div class="group-search">
@@ -24,6 +25,5 @@
             </div>
         </div>
         </div>
-    </div>
 </div>
 @stop
