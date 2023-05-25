@@ -1,15 +1,15 @@
 $(document).ready(function () {
-  document.querySelectorAll('select[name="categories-dropdown"]').forEach(element => {
-    element.addEventListener('change', function() {
-      const section = document.querySelector('select[name="categories-dropdown"]').value
-      var { top } = getOffset(document.getElementById(section))
-      var { left } = 0
+  document.querySelector('select[name="categories-dropdown-mask"]').addEventListener('change', function() {
+    document.querySelectorAll('select[name="categories-dropdown"]').value = document.querySelector('select[name="categories-dropdown-mask"]').value
+  })
 
-      window.scrollTo({ left: 0, top: top - 125, behavior: 'smooth' })
+  document.querySelectorAll('select[name="categories-dropdown"]').addEventListener('change', function() {
+    const section = document.querySelector('select[name="categories-dropdown"]').value
+    var { top } = getOffset(document.getElementById(section))
+    var { left } = 0
 
-      // document.getElementById(section).scrollIntoView()
-    })
-  });
+    window.scrollTo({ left: 0, top: top - 125, behavior: 'smooth' })
+  })
 })
 
 function getOffset( el ) {
