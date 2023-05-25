@@ -110,5 +110,5 @@
     </div>
 </div>
 
-<script src="{{ asset('js/delivery/product.js') }}"></script>
+<script type="module" src="{{ asset('js/delivery/product.js') }}"></script>
 @stop

@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-
 const badge = () => {
   const badge = document.querySelector('body > div.bag > .badge')
   const bagLocalStorage = JSON.parse(localStorage.getItem('bag'))
