@@ -54,41 +54,40 @@ const getOffset = (el) => {
   return { top: _y, left: _x };
 }
 
-(async () => {
-  var $navigationLinks = $('.scroll-navigator > div > a')
-  var $sections = $($('.content > section').get().reverse())
 
-  var sectionIdTonavigationLink = {}
-  $sections.each(function () {
-    var id = $(this).attr('id')
-    sectionIdTonavigationLink[id] = $('.scroll-navigator > div > a[to=' + id + ']')
-  })
+var $navigationLinks = $('.scroll-navigator > div > a')
+var $sections = $($('.content > section').get().reverse())
 
-  $(window).scroll(throttle(highlightNavigation, 100));
+var sectionIdTonavigationLink = {}
+$sections.each(function () {
+  var id = $(this).attr('id')
+  sectionIdTonavigationLink[id] = $('.scroll-navigator > div > a[to=' + id + ']')
+})
 
-  document.querySelectorAll('.scroll-navigator > div > a').forEach(element => {
-    element.addEventListener('click', (event) => {
-      event.preventDefault()
+$(window).scroll(throttle(highlightNavigation, 100));
 
-      if (!$(element).hasClass('active')) {
-        $navigationLinks.removeClass('active')
-        $(element).addClass('active')
-        $(element).addClass('clicked')
+document.querySelectorAll('.scroll-navigator > div > a').forEach(element => {
+  element.addEventListener('click', (event) => {
+    event.preventDefault()
 
-        var currentSection = $(element).attr('to')
-        var { top } = getOffset(document.getElementById(currentSection))
+    if (!$(element).hasClass('active')) {
+      $navigationLinks.removeClass('active')
+      $(element).addClass('active')
+      $(element).addClass('clicked')
 
-        var { left } = getOffset(element);
+      var currentSection = $(element).attr('to')
+      var { top } = getOffset(document.getElementById(currentSection))
 
-        if (document.querySelector('.scroll-navigator')) {
-          document.querySelector('.scroll-navigator').scrollTo({ left: left - 8, top: 0, behavior: 'smooth' });
+      var { left } = getOffset(element);
 
-          window.scrollTo({ left: 0, top: top - 125, behavior: 'smooth' })
-          setInterval(function () {
-            $(element).removeClass('clicked')
-          }, 1000)
-        }
+      if (document.querySelector('.scroll-navigator')) {
+        document.querySelector('.scroll-navigator').scrollTo({ left: left - 8, top: 0, behavior: 'smooth' });
+
+        window.scrollTo({ left: 0, top: top - 125, behavior: 'smooth' })
+        setInterval(function () {
+          $(element).removeClass('clicked')
+        }, 1000)
       }
-    });
-  })
-})()
+    }
+  });
+})
