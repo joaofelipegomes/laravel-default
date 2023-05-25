@@ -7,6 +7,12 @@ const createCartItems = () => {
   parser.href = window.location.href
 
   if (items) {
+    document.querySelector('.total').classList.add('hide')
+    document.querySelector('.total').classList.remove('show')
+
+    document.querySelector('.empty-cart').classList.add('show')
+    document.querySelector('.empty-cart').classList.remove('hide')
+
     for (const chave in items['items']) {
       let childElement = element.cloneNode(true)
       childElement.setAttribute('product', items['items'][chave]['id'])
@@ -47,6 +53,9 @@ const createCartItems = () => {
 
     element.remove()
   } else {
+    document.querySelector('.empty-cart').classList.remove('show')
+    document.querySelector('.empty-cart').classList.add('hide')
+
     document.querySelector('.bag-continue').classList.add('hide')
     document.querySelector('.bag-continue').classList.remove('show')
   }
