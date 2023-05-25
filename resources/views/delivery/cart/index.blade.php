@@ -44,12 +44,12 @@
         </a>
       </div>
 
-      <div class="total">
+      <div class="total hide">
         <div class="title">Subtotal</div>
         <div class="amount">R$ 0,00</div>
       </div>
 
-      <div class="empty-cart hide">
+      <div class="empty-cart show">
         Sacola vazia
       </div>
     </div>

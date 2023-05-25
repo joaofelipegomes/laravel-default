@@ -158,9 +158,21 @@ const updateCart = () => {
   if (quantityItems > 0) {
     document.querySelector('.bag-continue').classList.remove('hide')
     document.querySelector('.bag-continue').classList.add('show')
+
+    document.querySelector('.total').classList.remove('hide')
+    document.querySelector('.total').classList.add('show')
+
+    document.querySelector('.empty-cart').classList.remove('show')
+    document.querySelector('.empty-cart').classList.add('hide')
   } else {
     document.querySelector('.bag-continue').classList.add('hide')
     document.querySelector('.bag-continue').classList.remove('show')
+
+    document.querySelector('.total').classList.add('hide')
+    document.querySelector('.total').classList.remove('show')
+
+    document.querySelector('.empty-cart').classList.add('show')
+    document.querySelector('.empty-cart').classList.remove('hide')
   }
 
   document.querySelector('.total > .amount').innerHTML = parseFloat(amountTotal).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
