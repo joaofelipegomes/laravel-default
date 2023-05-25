@@ -428,6 +428,14 @@ body {
   @apply justify-center;
 }
 
+div.empty-cart {
+  @apply w-full flex justify-center items-center;
+}
+
+div.empty-cart.hide {
+  @apply hidden;
+}
+
 div.total {
   @apply grid grid-cols-2 border-t border-zinc-100;
 }
