@@ -2215,6 +2215,11 @@ div.empty-cart {
   width: 100%;
   align-items: center;
   justify-content: center;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(113 113 122 / var(--tw-text-opacity));
 }
 
 div.empty-cart.hide {
