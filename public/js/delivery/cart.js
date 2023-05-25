@@ -58,6 +58,7 @@ const editItems = () => {
 
   countersDecrement.forEach(counter => {
     counter.addEventListener('click', function () {
+      console.log('decrement')
       const span = (counter.querySelector('span').innerHTML).trim()
       const count = counter.parentElement.querySelector('.count').innerHTML
       const price = counter.parentElement.parentElement.querySelector('.price').getAttribute('price')
