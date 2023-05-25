@@ -8,7 +8,7 @@ const badge = () => {
 
   if (bagLocalStorage) {
     console.log(bagLocalStorage.store, routeParametersRegex[1])
-    if (bagLocalStorage.store === routeParametersRegex[1]) {
+    if (bagLocalStorage.store === routeParametersRegex[2]) {
 
       const badgeItemsQuantity = bagLocalStorage.quantity
       const badgeItemsAmount = bagLocalStorage.amount
@@ -31,7 +31,7 @@ const storeURI = () => {
   parser.href = uri
   let routeParametersRegex = parser.pathname.split('/')
 
-  return routeParametersRegex[1]
+  return routeParametersRegex[2]
 }
 
 const navigatorWeight = (uri) => {
