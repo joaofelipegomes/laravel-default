@@ -2209,6 +2209,18 @@ body {
   justify-content: center;
 }
 
+div.empty-cart {
+  display: flex;
+  height: 13rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+div.empty-cart.hide {
+  display: none;
+}
+
 div.total {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

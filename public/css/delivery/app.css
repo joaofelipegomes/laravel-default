@@ -429,7 +429,7 @@ body {
 }
 
 div.empty-cart {
-  @apply w-full flex justify-center items-center;
+  @apply w-full flex justify-center items-center h-52;
 }
 
 div.empty-cart.hide {
