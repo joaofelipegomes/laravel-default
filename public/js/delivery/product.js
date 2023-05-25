@@ -43,7 +43,7 @@ const bagBadge = () => {
     parser.href = window.location.href
     let routeParametersRegex = parser.pathname.split('/')
 
-    const id = routeParametersRegex[3]
+    const id = routeParametersRegex[4]
     const name = document.querySelector('#swup > div > div.item-details > div.product-info > div.name').innerHTML
     const image = document.querySelector('#swup > div > div.item-image').style.backgroundImage
     const quantity = document.querySelector('#swup > div > div.item-details > div.product-cart > div > div > div').getAttribute('quantity')
@@ -66,7 +66,7 @@ const bagBadge = () => {
       const bagJSON = {}
 
       bagJSON['uuid'] = uuidv4()
-      bagJSON['store'] = routeParametersRegex[1]
+      bagJSON['store'] = routeParametersRegex[2]
       bagJSON['user'] = null
       bagJSON['status'] = false
       bagJSON['amount'] = parseFloat(amount)
