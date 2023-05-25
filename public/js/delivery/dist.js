@@ -7,7 +7,7 @@ const badge = () => {
   parser.href = window.location.href
 
   if (bagLocalStorage) {
-    console.log(bagLocalStorage.store, routeParametersRegex[1])
+    console.log(bagLocalStorage.store, routeParametersRegex)
     if (bagLocalStorage.store === routeParametersRegex[2]) {
 
       const badgeItemsQuantity = bagLocalStorage.quantity
