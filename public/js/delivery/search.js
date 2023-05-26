@@ -36,7 +36,7 @@ const fetchProducts = (storeID, textSearch) => {
 }
 
 const deleteElements = () => {
-  const elements = document.querySelectorAll('div.content > section > div > a')
+  const elements = document.querySelectorAll('div.content > section > div > a.child')
 
   if (elements !== null) {
     elements.forEach(element => {
