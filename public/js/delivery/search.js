@@ -7,6 +7,6 @@ const hideBadge = () => {
   }
 }
 
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", () => {
   hideBadge()
 })
