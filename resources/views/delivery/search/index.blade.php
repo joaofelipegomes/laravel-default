@@ -16,7 +16,7 @@
       <div class="search-container">
         <div class="search">
           <span class="material-symbols-outlined">search</span>
-          <input type="text" name="search" value="" placeholder="Digite sua busca">
+          <input type="text" name="search" value="" placeholder="Digite sua buscas">
         </div>
       </div>
     </div>
