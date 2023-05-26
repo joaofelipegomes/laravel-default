@@ -22,16 +22,15 @@ const search = () => {
 }
 
 const fetchProducts = (storeID, textSearch) => {
-  fetch('/delivery/api/localstorage', {
-    method: 'POST',
+  fetch(`https://api.inovasistemas.app/delivery/store/${storeID}/products?search=${textSearch}`, {
+    method: 'GET',
     headers: {
       "Content-Type": "application/json",
-    },
-    body: localStorage.getItem('bag')
+    }
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log(data)
     })
 }
 
