@@ -46,18 +46,8 @@ const deleteElements = () => {
 }
 
 const createElements = (data) => {
-  let element = document.createElement('a').classList.add('product')
-  let product_info = document.createElement('div').classList.add('product-info')
-  let image = document.createElement('div').classList.add('image')
-  element.appendChild(product_info)
-  element.appendChild(image)
-
-  /*element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('name'))
-  element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('description'))
-  element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('price'))*/
-
   const container = document.querySelector('div.content > section > div')
-  //const element = document.querySelector('div.content > section > div > a')
+  const element = document.querySelector('div.content > section > div > a')
 
   if (data) {
     for (const object in data) {
@@ -65,7 +55,7 @@ const createElements = (data) => {
 
       product.style.display = 'flex';
 
-      container.appendChild(product)
+      container.insertBefore(element, product)
     }
   }
 }
