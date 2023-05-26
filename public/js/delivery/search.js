@@ -47,11 +47,14 @@ const deleteElements = () => {
 
 const createElements = (data) => {
   let element = document.createElement('a').classList.add('product')
-  element.appendChild(document.createElement('div').classList.add('product-info'))
-  element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('name'))
+  let product_info = document.createElement('div').classList.add('product-info')
+  let image = document.createElement('div').classList.add('image')
+  element.appendChild(product_info)
+  element.appendChild(image)
+
+  /*element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('name'))
   element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('description'))
-  element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('price'))
-  element.appendChild(document.createElement('div').classList.add('image'))
+  element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('price'))*/
 
   const container = document.querySelector('div.content > section > div')
   //const element = document.querySelector('div.content > section > div > a')
