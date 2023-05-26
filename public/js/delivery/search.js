@@ -10,12 +10,20 @@ const hideBadge = () => {
 }
 
 const search = () => {
-  const inputSearch = document.querySelector('input[name="search"]').addEventListener('keyup', function () {
+  const searchInput = document.querySelector('input[name="search"]')
+
+  searchInput.addEventListener('keyup', function () {
     if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => {
       console.log('oi')
     }, 1000)
+  })
+
+  searchInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      console.log('enter')
+    }
   })
 }
 
