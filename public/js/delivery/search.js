@@ -16,11 +16,7 @@ const search = () => {
     if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => {
-      if (e.key === 'Enter') {
-        if (!timeout) {
-          console.log('oi')
-        }
-      }
+      console.log('oi')
     }, 1000)
   })
 }
