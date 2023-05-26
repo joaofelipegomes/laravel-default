@@ -7,8 +7,6 @@ const hideBadge = () => {
   }
 }
 
-(async () => {
-  $(document).ready(function () {
-    hideBadge()
-  })
-})()
+$(document).ready(function () {
+  hideBadge()
+})
