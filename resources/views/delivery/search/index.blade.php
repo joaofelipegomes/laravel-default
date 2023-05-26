@@ -16,7 +16,7 @@
       <div class="search-container">
         <a href="/delivery/flordavila/buscar" class="search">
           <span class="material-symbols-outlined">search</span>
-          <input type="text" name="search" value="" placeholder="">
+          <input type="text" name="search" value="" placeholder="Digite sua busca">
         </a>
       </div>
     </div>
