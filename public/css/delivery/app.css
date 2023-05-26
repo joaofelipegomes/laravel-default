@@ -30,6 +30,10 @@ body {
   @apply text-4xl font-thin hover:text-zinc-900 transition-all duration-300 text-zinc-500 flex justify-center items-center cursor-pointer;
 }
 
+.menu-container > li > a > span:hover {
+  @apply symbols-fill;
+}
+
 .menu-container > li > a > span.bigger {
   @apply symbols-bigger;
 }

@@ -16,12 +16,26 @@ const search = () => {
     if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => {
-      console.log(searchInput.value)
+      fetchProducts(1, searchInput.value)
     }, 1000)
   })
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+const fetchProducts = (storeID, textSearch) => {
+  fetch('/delivery/api/localstorage', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: localStorage.getItem('bag')
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
+}
+
+document.addEventListener('DOMContentLoaded', () => {
   hideBadge()
   search()
 })

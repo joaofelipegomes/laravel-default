@@ -1082,6 +1082,9 @@ body {
 .menu-container > li > a > span:hover {
   --tw-text-opacity: 1;
   color: rgb(24 24 27 / var(--tw-text-opacity));
+  font-variation-settings: "FILL" 1;
+  animation: fill-animation 0.1s;
+  color: #18181b;
 }
 
 .menu-container > li > a > span.bigger {
