@@ -1,5 +1,36 @@
 let timeout = null
 
+const formatToReais = (number) => {
+  let int = parseInt(number).toLocaleString('pt-BR');
+  let decimal = (number % 1).toFixed(2).substring(2);
+
+  return `R$ ${int},${decimal}`;
+}
+
+function capitalizeText(text) {
+  const connectors = ['e', 'ou', 'mas', 'por', 'para', 'com', 'sem', 'como', 'até', 'de', 'desde', 'em', 'entre', 'sob', 'sobre', 'a', 'o', 'os', 'as', 'um', 'uns', 'uma', 'umas'];
+  const words = text.toLowerCase().split(' ');
+
+  for (let i = 0; i < words.length; i++) {
+    if (!connectors.includes(words[i])) {
+      words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+    }
+  }
+
+  return words.join(' ');
+}
+
+function capitalizeText(text) {
+  if (text.length === 0) {
+    return '';
+  }
+
+  const capitalizedText = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+
+  return capitalizedText;
+}
+
+
 const hideBadge = () => {
   const badge = document.querySelector('body > div.bag > .badge')
 
@@ -54,9 +85,9 @@ const createElements = (data, element) => {
       product.classList.add('child')
       product.style.display = 'flex';
 
-      product.querySelector('.name').innerHTML = data[object]['name']
-      product.querySelector('.description').innerHTML = data[object]['description']
-      product.querySelector('.price').innerHTML = data[object]['amount']
+      product.querySelector('.name').innerHTML = capitalizeText(data[object]['name'])
+      product.querySelector('.description').innerHTML = capitalizeText(data[object]['description'])
+      product.querySelector('.price').innerHTML = formatToReais(data[object]['amount'])
 
       if (data[object]['image']) {
         product.querySelector('.image').style.backgroundImage = `url('https://solucoesinova.com.br/inovadelivery/produto_img/1/${data[object]['image']}')`
