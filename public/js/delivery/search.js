@@ -16,7 +16,7 @@ const search = () => {
     if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => {
-      console.log('oi')
+      console.log(searchInput.value)
     }, 1000)
   })
 }
