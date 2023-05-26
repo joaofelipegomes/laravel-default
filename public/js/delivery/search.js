@@ -80,9 +80,8 @@ const currentURI = () => {
   let routeParametersRegex = document.createElement('a')
   routeParametersRegex.href = window.location.href;
   routeParametersRegex = String(routeParametersRegex.pathname).split('/')
-  console.log(routeParametersRegex)
 
-  return `/delivery/${routeParametersRegex[2]}/`
+  return `/${routeParametersRegex[1]}/${routeParametersRegex[2]}`
 }
 
 const createElements = (data, element) => {
