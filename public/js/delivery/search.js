@@ -54,6 +54,8 @@ const createElements = (data, element) => {
       product.classList.add('child')
       product.style.display = 'flex';
 
+      product.querySelector('name').innerHTML = data[object]['name']
+
       container.appendChild(product)
     }
   }
