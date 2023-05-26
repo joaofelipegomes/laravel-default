@@ -1,4 +1,4 @@
-@extends('admin._templates.basic.index')
+@extends('support._templates.basic.index')
 @section('title', 'Entrar')
 
 @section('body')
@@ -7,7 +7,7 @@
     <img src="{{ asset('img/logo-escuro.png') }}" class="logo-auth">
     <div>
       <div>
-        <h1>Portal administrativo</h1>
+        <h1>Portal Suporte</h1>
         <div>
           <div>
             <label for="username">Usuário</label>
