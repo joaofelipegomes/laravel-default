@@ -12,14 +12,12 @@
   </div>
 
   <div class="content-container">
-    <div class="search-details">
-      <div class="group-search">
-        <div class="search-container">
-          <a href="/delivery/flordavila/buscar" class="search">
-            <span class="material-symbols-outlined">search</span>
-            <p>Buscar na Flor da Vila Mini Salgados</p>
-          </a>
-        </div>
+    <div class="group-search">
+      <div class="search-container">
+        <a href="/delivery/flordavila/buscar" class="search">
+          <span class="material-symbols-outlined">search</span>
+          <p>Buscar na Flor da Vila Mini Salgados</p>
+        </a>
       </div>
     </div>
   </div>
