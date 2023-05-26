@@ -9,7 +9,7 @@ const hideBadge = () => {
 
 const search = () => {
   const inputSearch = document.querySelector('input[name="search"]').addEventListener('keyup', function () {
-    console.log('teste')
+    setInterval(() => { console.log('oi') }, 1000)
   })
 }
 
