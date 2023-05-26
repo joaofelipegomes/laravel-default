@@ -15,7 +15,7 @@
     <div class="group-search" style="padding-left: 50px;">
       <div class="search-container">
         <div class="search">
-          <span class="material-symbols-outlined">search</span>
+          <span class="material-symbols-outlined" style="margin-top: -3px;">search</span>
           <input type="text" name="search" value="" placeholder="Digite sua busca" autocomplete="off">
         </div>
       </div>
