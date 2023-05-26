@@ -1,4 +1,4 @@
-@extends('help._templates.basic.index')
+@extends('support._templates.basic.index')
 @section('title', 'Entrar')
 
 @section('body')
