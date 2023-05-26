@@ -16,16 +16,12 @@ const search = () => {
     if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => {
-      console.log('oi')
-    }, 1000)
-  })
-
-  searchInput.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      if (!timeout) {
-        console.log('enter')
+      if (e.key === 'Enter') {
+        if (!timeout) {
+          console.log('oi')
+        }
       }
-    }
+    }, 1000)
   })
 }
 
