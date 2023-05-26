@@ -1,0 +1,17 @@
+{
+  "name": "Inova Sistemas",
+  "description": "Inova Sistemas",
+  "icons": [
+    {
+      "src": "/img/512x512.png",
+      "sizes": "48x48",
+      "type": "image/webp"
+    }
+  ],
+  "scope": "/",
+  "display": "standalone",
+  "short_name": "Sistemas",
+  "start_url": "/delivery/inovasistemas",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}
