@@ -20,7 +20,8 @@ const createCartItems = () => {
       if (items['items'][chave]['image']) {
         childElement.querySelector('.image.cart').style.backgroundImage = items['items'][chave]['image']
       } else {
-        childElement.querySelector('.product-info.cart').style.paddingLeft = 0;
+        childElement.querySelector('.image.cart').style.display = 'none'
+        childElement.querySelector('.product-info.cart').style.paddingLeft = 0
       }
 
       childElement.querySelector('.product-info > .name').innerHTML = items['items'][chave]['name']
