@@ -22,7 +22,9 @@ const search = () => {
 
   searchInput.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-      console.log('enter')
+      if (!timeout) {
+        console.log('enter')
+      }
     }
   })
 }
