@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\EnsureUserIsValidOS;
+use App\Http\Middleware\EnsureUserIsLoggedOS;
 use App\Http\Controllers\Support\AuthController;
 
-Route::middleware(EnsureUserIsValidOS::class)->get(
+Route::middleware(EnsureUserIsLoggedOS::class)->get(
   '/',
   [AuthController::class, 'redirectUser']
 );
 
-Route::middleware(EnsureUserIsValidOS::class)->get(
+Route::get(
   '/entrar',
   [AuthController::class, 'loggin']
 );
