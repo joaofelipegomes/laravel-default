@@ -61,6 +61,7 @@ const createElements = (data, element) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const element = document.querySelector('div.content > section > div > a')
+  element.remove()
 
   hideBadge()
   search(element)
