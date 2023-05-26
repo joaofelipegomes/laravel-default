@@ -140,7 +140,7 @@ const windowResize = () => {
       content_padding = content_padding + 20
     }
     back_container.style.paddingLeft = `${content_padding}px`
-    back_container.style.paddingRight = `${content_padding}px`
+    back_container.style.paddingRight = `0px`
   }
 }
 
