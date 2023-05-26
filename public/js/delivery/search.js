@@ -1,5 +1,4 @@
 let timeout = null
-const element = document.querySelector('div.content > section > div > a')
 
 const hideBadge = () => {
   const badge = document.querySelector('body > div.bag > .badge')
@@ -10,19 +9,19 @@ const hideBadge = () => {
   }
 }
 
-const search = () => {
+const search = (element) => {
   const searchInput = document.querySelector('input[name="search"]')
 
   searchInput.addEventListener('keyup', function (e) {
     if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => {
-      fetchProducts(1, searchInput.value)
+      fetchProducts(1, searchInput.value, element)
     }, 1000)
   })
 }
 
-const fetchProducts = (storeID, textSearch) => {
+const fetchProducts = (storeID, textSearch, element) => {
   fetch(`https://api.inovasistemas.app/delivery/store/${storeID}/products?search=${textSearch}`, {
     method: 'GET',
     headers: {
@@ -32,7 +31,7 @@ const fetchProducts = (storeID, textSearch) => {
     .then((response) => response.json())
     .then((data) => {
       deleteElements()
-      createElements(data)
+      createElements(data, element)
     })
 }
 
@@ -46,7 +45,7 @@ const deleteElements = () => {
   }
 }
 
-const createElements = (data) => {
+const createElements = (data, element) => {
   const container = document.querySelector('div.content > section > div')
 
   if (data) {
@@ -61,6 +60,8 @@ const createElements = (data) => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const element = document.querySelector('div.content > section > div > a')
+
   hideBadge()
-  search()
+  search(element)
 })
