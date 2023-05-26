@@ -6,7 +6,7 @@ use App\Http\Controllers\Support\AuthController;
 
 Route::middleware(EnsureUserIsValidOS::class)->get(
   '/',
-  [AuthController::class, 'loggin']
+  [AuthController::class, 'redirectUser']
 );
 
 Route::middleware(EnsureUserIsValidOS::class)->get(
