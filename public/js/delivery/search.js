@@ -76,13 +76,24 @@ const deleteElements = () => {
   }
 }
 
+const currentURI = () => {
+  let routeParametersRegex = document.createElement('a')
+  routeParametersRegex.href = window.location.href;
+  routeParametersRegex = String(routeParametersRegex.pathname).split('/')
+
+  return `${routeParametersRegex[0]}/${routeParametersRegex[1]}/`
+}
+
 const createElements = (data, element) => {
   const container = document.querySelector('div.content > section > div')
+  const uri = currentURI()
+
 
   if (data) {
     for (const object in data) {
       let product = element.cloneNode(true)
       product.classList.add('child')
+      product.setAttribute('href', `${uri}/item/${data[object]['id']}`)
       product.style.display = 'flex';
 
       product.querySelector('.name').innerHTML = capitalizeText(data[object]['name'])
