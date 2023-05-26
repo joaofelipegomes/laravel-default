@@ -16,9 +16,16 @@ const createCartItems = () => {
     for (const chave in items['items']) {
       let childElement = element.cloneNode(true)
       childElement.setAttribute('product', items['items'][chave]['id'])
+
+      if (items['items'][chave]['image']) {
+        childElement.querySelector('.image.cart').style.backgroundImage = items['items'][chave]['image']
+      } else {
+        childElement.querySelector('.product-info.cart').style.paddingLeft = 0;
+      }
+
       childElement.querySelector('.product-info > .name').innerHTML = items['items'][chave]['name']
       childElement.querySelector('.product-info > .description').innerHTML = items['items'][chave]['observations']
-      childElement.querySelector('.image.cart').style.backgroundImage = items['items'][chave]['image']
+
       childElement.querySelector('.product-info > div > .price').innerHTML = parseFloat(items['items'][chave]['amount']).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
       childElement.querySelector('.product-info > div > .price').setAttribute('price', items['items'][chave]['price'])
       childElement.querySelector('.counter').setAttribute('x-data', `{ count: ${items['items'][chave]['quantity']} }`)
