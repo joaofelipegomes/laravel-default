@@ -12,7 +12,7 @@ const hideBadge = () => {
 const search = () => {
   const searchInput = document.querySelector('input[name="search"]')
 
-  searchInput.addEventListener('keyup', function () {
+  searchInput.addEventListener('keyup', function (e) {
     if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => {
