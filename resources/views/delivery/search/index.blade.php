@@ -16,7 +16,7 @@
       <div class="search-container">
         <a href="/delivery/flordavila/buscar" class="search">
           <span class="material-symbols-outlined">search</span>
-          <p>Buscar na Flor da Vila Mini Salgados</p>
+          <input type="text" name="search" value="" placeholder="">
         </a>
       </div>
     </div>
