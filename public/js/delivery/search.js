@@ -1,4 +1,5 @@
 let timeout = null
+const element = document.querySelector('div.content > section > div > a')
 
 const hideBadge = () => {
   const badge = document.querySelector('body > div.bag > .badge')
@@ -47,7 +48,6 @@ const deleteElements = () => {
 
 const createElements = (data) => {
   const container = document.querySelector('div.content > section > div')
-  const element = document.querySelector('div.content > section > div > a')
 
   if (data) {
     for (const object in data) {
@@ -55,7 +55,7 @@ const createElements = (data) => {
 
       product.style.display = 'flex';
 
-      container.insertBefore(element, product)
+      container.appendChild(product)
     }
   }
 }
