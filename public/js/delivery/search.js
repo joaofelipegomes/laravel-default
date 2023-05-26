@@ -30,8 +30,32 @@ const fetchProducts = (storeID, textSearch) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      deleteElements()
+      createElements(data)
     })
+}
+
+const deleteElements = () => {
+  const elements = document.querySelectorAll('div.content > section > a')
+
+  if (elements !== null) {
+    elements.forEach(element => {
+      element.remove()
+    })
+  }
+}
+
+const createElements = (data) => {
+  const container = document.querySelector('div.content > section')
+  const element = document.querySelector('div.content > section > a')
+
+  if (data) {
+    for (const object in data) {
+      let product = element.cloneNode(true)
+
+      container.appendChild(product)
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
