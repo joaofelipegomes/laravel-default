@@ -81,7 +81,8 @@ const currentURI = () => {
   routeParametersRegex.href = window.location.href;
   routeParametersRegex = String(routeParametersRegex.pathname).split('/')
 
-  return `${routeParametersRegex[0]}/${routeParametersRegex[1]}/`
+  console.log(`/${routeParametersRegex[0]}/${routeParametersRegex[1]}/`)
+  return `/${routeParametersRegex[0]}/${routeParametersRegex[1]}/`
 }
 
 const createElements = (data, element) => {
