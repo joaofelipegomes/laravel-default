@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="content-container">
+  <div class="content-container" style="min-height: 100vh;">
     <div class="group-search" style="padding-left: 50px;">
       <div class="search-container">
         <div class="search">
