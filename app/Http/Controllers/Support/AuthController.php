@@ -9,6 +9,6 @@ class AuthController extends Controller
 {
   public function loggin()
   {
-    return view('support.auth.index');
+    return view('support.auth.loggin.index');
   }
 }
