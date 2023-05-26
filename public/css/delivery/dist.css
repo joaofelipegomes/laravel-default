@@ -1405,6 +1405,36 @@ body {
   outline-offset: 2px;
 }
 
+.search-container > .search > input {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 300;
+  --tw-text-opacity: 1;
+  color: rgb(39 39 42 / var(--tw-text-opacity));
+}
+
+.search-container > .search > input::-moz-placeholder {
+  font-weight: 300;
+  --tw-text-opacity: 1;
+  color: rgb(39 39 42 / var(--tw-text-opacity));
+}
+
+.search-container > .search > input::placeholder {
+  font-weight: 300;
+  --tw-text-opacity: 1;
+  color: rgb(39 39 42 / var(--tw-text-opacity));
+}
+
+.search-container > .search > input:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .content-container > .group-search > .categories-container {
   display: none;
   width: 250px;

@@ -142,6 +142,10 @@ body {
   @apply text-sm focus:outline-none px-2 font-light placeholder:font-light placeholder:text-zinc-800 text-zinc-800 w-full h-full bg-transparent;
 }
 
+.search-container > .search > input {
+  @apply text-sm focus:outline-none px-2 font-light placeholder:font-light placeholder:text-zinc-800 text-zinc-800 w-full h-full bg-transparent;
+}
+
 .content-container > .group-search > .categories-container {
   @apply w-[250px] rounded-full bg-[#f3edf7]/80 px-1 hidden sm:block;
 }
