@@ -12,7 +12,7 @@
   </div>
 
   <div class="content-container">
-    <div class="group-search">
+    <div class="group-search" style="padding-left: 50px;">
       <div class="search-container">
         <a href="/delivery/flordavila/buscar" class="search">
           <span class="material-symbols-outlined">search</span>
