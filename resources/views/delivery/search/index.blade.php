@@ -24,7 +24,7 @@
     <div class="content">
       <section>
         <div class="group-products">
-          <a href="" class="product" id="">
+          <a href="" class="product" id="" style="display: none;">
             <div class="product-info">
               <div class="name">Teste</div>
               <div class="description">Teste</div>

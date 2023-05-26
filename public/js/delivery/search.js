@@ -53,6 +53,8 @@ const createElements = (data) => {
     for (const object in data) {
       let product = element.cloneNode(true)
 
+      product.style.display = 'flex';
+
       container.appendChild(product)
     }
   }
