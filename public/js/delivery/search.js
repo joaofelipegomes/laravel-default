@@ -7,6 +7,13 @@ const hideBadge = () => {
   }
 }
 
+const search = () => {
+  const inputSearch = document.querySelector('input[name="search"]').addEventListener('keyup', function () {
+    console.log('teste')
+  })
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   hideBadge()
+  search()
 })
