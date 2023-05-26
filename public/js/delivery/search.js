@@ -58,7 +58,9 @@ const createElements = (data, element) => {
       product.querySelector('.description').innerHTML = data[object]['description']
       product.querySelector('.price').innerHTML = data[object]['amount']
 
-      product.querySelector('.image').style.backgroundImage = `url('https://solucoesinova.com.br/inovadelivery/produto_img/1/${data[object]['image']}')`
+      if (data[object]['image']) {
+        product.querySelector('.image').style.backgroundImage = `url('https://solucoesinova.com.br/inovadelivery/produto_img/1/${data[object]['image']}')`
+      }
 
       container.appendChild(product)
     }
