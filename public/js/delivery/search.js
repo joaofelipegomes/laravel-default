@@ -36,7 +36,7 @@ const fetchProducts = (storeID, textSearch) => {
 }
 
 const deleteElements = () => {
-  const elements = document.querySelectorAll('div.content > section > a')
+  const elements = document.querySelectorAll('div.content > section > div > a')
 
   if (elements !== null) {
     elements.forEach(element => {
@@ -46,8 +46,8 @@ const deleteElements = () => {
 }
 
 const createElements = (data) => {
-  const container = document.querySelector('div.content > section')
-  const element = document.querySelector('div.content > section > a')
+  const container = document.querySelector('div.content > section > div')
+  const element = document.querySelector('div.content > section > div > a')
 
   if (data) {
     for (const object in data) {
