@@ -7,7 +7,7 @@
     <img src="{{ asset('img/logo-escuro.png') }}" class="logo-auth">
     <div>
       <div>
-        <h1>Portal administrativo</h1>
+        <!--<h1>Portal administrativo</h1>-->
         <div>
           <div>
             <label for="username">Usuário</label>
