@@ -14,7 +14,7 @@
   <div class="content-container">
     <div class="group-search" style="padding-left: 50px;">
       <div class="search-container">
-        <div href="/delivery/flordavila/buscar" class="search">
+        <div class="search">
           <span class="material-symbols-outlined">search</span>
           <input type="text" name="search" value="" placeholder="Digite sua busca">
         </div>
