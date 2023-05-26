@@ -82,7 +82,7 @@ const currentURI = () => {
   routeParametersRegex = String(routeParametersRegex.pathname).split('/')
 
   console.log(`/${routeParametersRegex[0]}/${routeParametersRegex[1]}/`)
-  return `/${routeParametersRegex[0]}/${routeParametersRegex[1]}/`
+  return `/delivery/${routeParametersRegex[1]}/`
 }
 
 const createElements = (data, element) => {
