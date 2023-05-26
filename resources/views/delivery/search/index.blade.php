@@ -27,3 +27,5 @@
       </div>
 </div>
 @stop
+
+<script src="{{ asset('js/delivery/search.js') }}"></script>
