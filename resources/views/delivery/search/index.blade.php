@@ -4,7 +4,7 @@
 @section("body")
 <div id="swup" class="main-container no-padding swup-transition-fade">
   <div class="item-container">
-    <div class="back-container" style="width: auto; padding-right: 0px;">
+    <div class="back-container" style="width: auto; padding-right: 0px !important;">
       <a href="/delivery/{{ getCookies('store') }}" class="back-navigator">
         <span class="material-symbols-outlined weight">arrow_back_ios</span>
       </a>
