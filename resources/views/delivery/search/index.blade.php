@@ -20,6 +20,21 @@
         </div>
       </div>
     </div>
+
+    <div class="content">
+      <section>
+        <div class="group-products">
+          <a href="" class="product" id="">
+            <div class="product-info">
+              <div class="name">Teste</div>
+              <div class="description">Teste</div>
+              <div class="price">R$ 0,00</div>
+            </div>
+            <div class="image"></div>
+          </a>
+        </div>
+      </section>
+    </div>
   </div>
 </div>
 @stop
