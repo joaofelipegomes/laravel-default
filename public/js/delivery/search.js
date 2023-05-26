@@ -79,9 +79,10 @@ const deleteElements = () => {
 const currentURI = () => {
   let routeParametersRegex = document.createElement('a')
   routeParametersRegex.href = window.location.href;
+  console.log(String(routeParametersRegex.pathname))
   routeParametersRegex = String(routeParametersRegex.pathname).split('/')
 
-  console.log(String(routeParametersRegex.pathname))
+
   return `/delivery/${routeParametersRegex[1]}/`
 }
 
