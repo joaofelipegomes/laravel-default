@@ -17,7 +17,7 @@ const search = (element) => {
 
     timeout = setTimeout(() => {
       fetchProducts(1, searchInput.value, element)
-    }, 800)
+    }, 500)
   })
 }
 
