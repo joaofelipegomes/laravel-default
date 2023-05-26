@@ -1,3 +1,5 @@
+let timeout = null
+
 const hideBadge = () => {
   const badge = document.querySelector('body > div.bag > .badge')
 
@@ -9,7 +11,11 @@ const hideBadge = () => {
 
 const search = () => {
   const inputSearch = document.querySelector('input[name="search"]').addEventListener('keyup', function () {
-    setInterval(() => { console.log('oi') }, 1000)
+    if (timeout) clearTimeout(timeout)
+
+    timeout = setTimeout(() => {
+      console.log('oi')
+    }, 1000)
   })
 }
 
