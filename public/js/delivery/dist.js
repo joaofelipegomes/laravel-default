@@ -25,15 +25,6 @@ const badge = () => {
   }
 }
 
-const hideBadge = () => {
-  const badge = document.querySelector('body > div.bag > .badge')
-
-  if (!badge.classList.contains('hide')) {
-    badge.classList.add('hide')
-    badge.classList.remove('show')
-  }
-}
-
 const storeURI = () => {
   let parser = document.createElement('a')
   parser.href = uri
