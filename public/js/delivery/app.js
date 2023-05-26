@@ -2,16 +2,6 @@ import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 let eventListener = false
 
 async function init() {
-  function hideBadge() {
-    console.log('hideBadge')
-    const badge = document.querySelector('body > div.bag > .badge')
-
-    if (!badge.classList.contains('hide')) {
-      badge.classList.add('hide')
-      badge.classList.remove('show')
-    }
-  }
-
   function hideBadgeCart() {
     console.log('hideBadgeCart')
     const badge = document.querySelector('body > .bag-continue')
