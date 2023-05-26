@@ -46,8 +46,15 @@ const deleteElements = () => {
 }
 
 const createElements = (data) => {
+  let element = document.createElement('a').classList.add('product')
+  element.appendChild(document.createElement('div').classList.add('product-info'))
+  element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('name'))
+  element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('description'))
+  element.querySelector('.product-info').appendChild(document.createElement('div').classList.add('price'))
+  element.appendChild(document.createElement('div').classList.add('image'))
+
   const container = document.querySelector('div.content > section > div')
-  const element = document.querySelector('div.content > section > div > a')
+  //const element = document.querySelector('div.content > section > div > a')
 
   if (data) {
     for (const object in data) {
