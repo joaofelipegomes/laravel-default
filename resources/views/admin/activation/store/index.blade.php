@@ -218,11 +218,11 @@
                 <label class="label-title">Tipo do pagamento</label>
                 <div>
                   <select name="subscription-cycle" autocomplete="off">
-                    <option value="" {{ (!$pagarme_amount) ? 'selected' : '' }} disabled>Selecione</option>
-                    <option {{ ($pagarme_amount == '1') ? 'selected' : '' }} value="Mensal">Mensal</option>
-                    <option {{ ($pagarme_amount == '3') ? 'selected' : '' }} value="Trimestral">Trimestral</option>
-                    <option {{ ($pagarme_amount == '6') ? 'selected' : '' }} value="Semestral">Semestral</option>
-                    <option {{ ($pagarme_amount == '12') ? 'selected' : '' }} value="Anual">Anual</option>
+                    <option value="" {{ (!$pagarme_cycle) ? 'selected' : '' }} disabled>Selecione</option>
+                    <option {{ ($pagarme_cycle == '30') ? 'selected' : '' }} value="30">Mensal</option>
+                    <option {{ ($pagarme_cycle == '90') ? 'selected' : '' }} value="90">Trimestral</option>
+                    <option {{ ($pagarme_cycle == '180') ? 'selected' : '' }} value="180">Semestral</option>
+                    <option {{ ($pagarme_cycle == '360') ? 'selected' : '' }} value="360">Anual</option>
                   </select>
                 </div>
               </div>
