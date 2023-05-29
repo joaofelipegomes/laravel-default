@@ -68,33 +68,33 @@ class DatabaseQueries
   public function selectSerialNumberBySubscription($subscription_id)
   {
     return DB::connection('admin')
-    ->table('InovaAutomacao_Empresa')
-    ->join('InovaAutomacao_EmpresaEstacao', 'InovaAutomacao_EmpresaEstacao.EmpresaID', '=', 'InovaAutomacao_Empresa.EmpresaID')
-    ->where('InovaAutomacao_Empresa.EmpresaPagarmeAssinatura', '=', $subscription_id)
-    ->where('InovaAutomacao_EmpresaEstacao.EstacaoFlagServidor', '=', true)
-    ->select('InovaAutomacao_EmpresaEstacao.EstacaoSerieHD as serial')
-    ->limit(1)
-    ->get();
+      ->table('InovaAutomacao_Empresa')
+      ->join('InovaAutomacao_EmpresaEstacao', 'InovaAutomacao_EmpresaEstacao.EmpresaID', '=', 'InovaAutomacao_Empresa.EmpresaID')
+      ->where('InovaAutomacao_Empresa.EmpresaPagarmeAssinatura', '=', $subscription_id)
+      ->where('InovaAutomacao_EmpresaEstacao.EstacaoFlagServidor', '=', true)
+      ->select('InovaAutomacao_EmpresaEstacao.EstacaoSerieHD as serial')
+      ->limit(1)
+      ->get();
   }
 
   public function countClientsEntry()
   {
     return DB::connection('admin')
-    ->table('InovaAutomacao_Empresa as a')
-    ->join('InovaAutomacao_PlanoValidacao as b', 'b.EmpresaID', '=', 'a.EmpresaID')
-    ->where('b.ValidacaoData', '>', '2023-05-01 00:00:00')
-    ->select(
-      'b.ValidacaoData',
-      DB::raw('count(*) as count'),
-      DB::raw("(select count(*)
+      ->table('InovaAutomacao_Empresa as a')
+      ->join('InovaAutomacao_PlanoValidacao as b', 'b.EmpresaID', '=', 'a.EmpresaID')
+      ->where('b.ValidacaoData', '>', '2023-05-01 00:00:00')
+      ->select(
+        'b.ValidacaoData',
+        DB::raw('count(*) as count'),
+        DB::raw("(select count(*)
       from InovaAutomacao_Empresa
       inner join InovaAutomacao_PlanoValidacao on InovaAutomacao_PlanoValidacao.EmpresaID = InovaAutomacao_Empresa.EmpresaID
       where InovaAutomacao_PlanoValidacao.ValidacaoData < b.ValidacaoData)
       as sum")
       )
-    ->groupBy('b.ValidacaoData')
-    ->orderBy('b.ValidacaoData')
-    ->get();
+      ->groupBy('b.ValidacaoData')
+      ->orderBy('b.ValidacaoData')
+      ->get();
   }
 
   public function storeActivationDetails($id)
@@ -626,7 +626,7 @@ class DatabaseQueries
     return DB::connection('admin')
       ->table('InovaAutomacao_Empresa')
       ->where('EmpresaPagarmeAssinatura', '=', $subscription_id)
-      ->select('EmpresaPagarmeEmail as email', 'EmpresaCNPJ as document_number')
+      ->select('EmpresaPagarmeEmail as email', 'EmpresaCNPJ as document_number', 'EmpresaID as id')
       ->get();
   }
 
@@ -642,124 +642,124 @@ class DatabaseQueries
   public function selectClientStatus()
   {
     return DB::connection('os')
-    ->table('InovaSistemas_StatusCliente')
-    ->select('statusID as id', 'statusDescricao as name', 'statusAbreviacao as abbreviation')
-    ->get();
+      ->table('InovaSistemas_StatusCliente')
+      ->select('statusID as id', 'statusDescricao as name', 'statusAbreviacao as abbreviation')
+      ->get();
   }
 
   public function selectClientsOS($search, $type)
   {
     return DB::connection('os')
-    ->table('ClientesInova')
-    ->whereRaw("cast(ClienteTipo as char(50)) like '%$type%'")
+      ->table('ClientesInova')
+      ->whereRaw("cast(ClienteTipo as char(50)) like '%$type%'")
 
-    ->where(function($query) use ($search) {
+      ->where(function ($query) use ($search) {
 
-      $query->where('NomeEmpresa', 'like', "%$search%")
-      ->orWhere('Contato1', 'like', "%$search%")
-      ->orWhere('Telefone1', 'like', "%$search%")
-      ->orWhere('ClienteCNPJ', 'like', "%$search%");
-    })
+        $query->where('NomeEmpresa', 'like', "%$search%")
+          ->orWhere('Contato1', 'like', "%$search%")
+          ->orWhere('Telefone1', 'like', "%$search%")
+          ->orWhere('ClienteCNPJ', 'like', "%$search%");
+      })
 
-    ->leftJoin('InovaSistemas_Produtos', 'ClientesInova.ProdutoID', '=', 'InovaSistemas_Produtos.ProdutoID')
-    ->select(
-      'NumeroEmpresa as id',
-      'NomeEmpresa as trade_name',
-      'ClienteCNPJ as document_number',
-      'ProdutoDescricao as product',
-      'ClienteTipo as type',
-      'Contato1 as contact',
-      'Telefone1 as phone',
+      ->leftJoin('InovaSistemas_Produtos', 'ClientesInova.ProdutoID', '=', 'InovaSistemas_Produtos.ProdutoID')
+      ->select(
+        'NumeroEmpresa as id',
+        'NomeEmpresa as trade_name',
+        'ClienteCNPJ as document_number',
+        'ProdutoDescricao as product',
+        'ClienteTipo as type',
+        'Contato1 as contact',
+        'Telefone1 as phone',
       )
-    ->orderBy('NomeEmpresa')
-    ->get();
+      ->orderBy('NomeEmpresa')
+      ->get();
   }
 
   public function selectClientOS($id)
   {
     return DB::connection('os')
-    ->table('ClientesInova')
-    ->where('NumeroEmpresa', '=', $id)
-    ->select(
-      'ClienteBairro as neighborhood',
-      'ClienteCNPJ as document_number',
-      'ClienteCep as zipcode',
-      'ClienteCidade as city',
-      'ClienteEndNumero as house_number',
-      'ClienteIE as state_registration',
-      'ClienteRazaoSocial as corporate_name',
-      'ClienteTipo as type',
-      'ClienteUF as state',
-      'Contato1 as contact',
-      'Email1 as email',
-      'Endereco as address',
-      'NomeEmpresa as trade_name',
-      'ProdutoID as product_id',
-      'Telefone1 as phone',
-      'data_cadastro as entered_at',
+      ->table('ClientesInova')
+      ->where('NumeroEmpresa', '=', $id)
+      ->select(
+        'ClienteBairro as neighborhood',
+        'ClienteCNPJ as document_number',
+        'ClienteCep as zipcode',
+        'ClienteCidade as city',
+        'ClienteEndNumero as house_number',
+        'ClienteIE as state_registration',
+        'ClienteRazaoSocial as corporate_name',
+        'ClienteTipo as type',
+        'ClienteUF as state',
+        'Contato1 as contact',
+        'Email1 as email',
+        'Endereco as address',
+        'NomeEmpresa as trade_name',
+        'ProdutoID as product_id',
+        'Telefone1 as phone',
+        'data_cadastro as entered_at',
       )
-    ->get();
+      ->get();
   }
 
   public function selectProducts()
   {
     return DB::connection('os')
-    ->table('InovaSistemas_Produtos')
-    ->select(
-      'ProdutoID as id',
-      'ProdutoDescricao as name',
-      'ProdutoBanco as bank'
-    )
-    ->get();
+      ->table('InovaSistemas_Produtos')
+      ->select(
+        'ProdutoID as id',
+        'ProdutoDescricao as name',
+        'ProdutoBanco as bank'
+      )
+      ->get();
   }
 
   public function updateStoreOS($params)
   {
     return DB::connection('os')
-    ->table('ClientesInova')
-    ->where('NumeroEmpresa', '=', $params[0]['id'])
-    ->update([
-      'ClienteBairro' => $params[0]['neighborhood'],
-      'ClienteCNPJ' => $params[0]['document_number'],
-      'ClienteCep' => $params[0]['zipcode'],
-      'ClienteCidade' => $params[0]['city'],
-      'ClienteEndNumero' => $params[0]['house_number'],
-      'ClienteIE' => $params[0]['state_registration'],
-      'ClienteRazaoSocial' => $params[0]['corporate_name'],
-      'ClienteTipo' => $params[0]['situation'],
-      'ClienteUF' => $params[0]['state'],
-      'Contato1' => $params[0]['responsible'],
-      'Email1' => $params[0]['email'],
-      'Endereco' => $params[0]['address'],
-      'NomeEmpresa' => $params[0]['trade_name'],
-      'ProdutoID' => $params[0]['product'],
-      'Telefone1' => $params[0]['phone'],
-      'data_cadastro' => $params[0]['entered_at'],
-    ]);
+      ->table('ClientesInova')
+      ->where('NumeroEmpresa', '=', $params[0]['id'])
+      ->update([
+        'ClienteBairro' => $params[0]['neighborhood'],
+        'ClienteCNPJ' => $params[0]['document_number'],
+        'ClienteCep' => $params[0]['zipcode'],
+        'ClienteCidade' => $params[0]['city'],
+        'ClienteEndNumero' => $params[0]['house_number'],
+        'ClienteIE' => $params[0]['state_registration'],
+        'ClienteRazaoSocial' => $params[0]['corporate_name'],
+        'ClienteTipo' => $params[0]['situation'],
+        'ClienteUF' => $params[0]['state'],
+        'Contato1' => $params[0]['responsible'],
+        'Email1' => $params[0]['email'],
+        'Endereco' => $params[0]['address'],
+        'NomeEmpresa' => $params[0]['trade_name'],
+        'ProdutoID' => $params[0]['product'],
+        'Telefone1' => $params[0]['phone'],
+        'data_cadastro' => $params[0]['entered_at'],
+      ]);
   }
 
   public function insertStoreOS($params)
   {
     return DB::connection('os')
-    ->table('ClientesInova')
-    ->insert([
-      'ClienteBairro' => $params[0]['neighborhood'],
-      'ClienteCNPJ' => $params[0]['document_number'],
-      'ClienteCep' => $params[0]['zipcode'],
-      'ClienteCidade' => $params[0]['city'],
-      'ClienteEndNumero' => $params[0]['house_number'],
-      'ClienteIE' => $params[0]['state_registration'],
-      'ClienteRazaoSocial' => $params[0]['corporate_name'],
-      'ClienteTipo' => $params[0]['situation'],
-      'ClienteUF' => $params[0]['state'],
-      'Contato1' => $params[0]['responsible'],
-      'Email1' => $params[0]['email'],
-      'Endereco' => $params[0]['address'],
-      'NomeEmpresa' => $params[0]['trade_name'],
-      'ProdutoID' => $params[0]['product'],
-      'Telefone1' => $params[0]['phone'],
-      'data_cadastro' => $params[0]['entered_at'],
-    ]);
+      ->table('ClientesInova')
+      ->insert([
+        'ClienteBairro' => $params[0]['neighborhood'],
+        'ClienteCNPJ' => $params[0]['document_number'],
+        'ClienteCep' => $params[0]['zipcode'],
+        'ClienteCidade' => $params[0]['city'],
+        'ClienteEndNumero' => $params[0]['house_number'],
+        'ClienteIE' => $params[0]['state_registration'],
+        'ClienteRazaoSocial' => $params[0]['corporate_name'],
+        'ClienteTipo' => $params[0]['situation'],
+        'ClienteUF' => $params[0]['state'],
+        'Contato1' => $params[0]['responsible'],
+        'Email1' => $params[0]['email'],
+        'Endereco' => $params[0]['address'],
+        'NomeEmpresa' => $params[0]['trade_name'],
+        'ProdutoID' => $params[0]['product'],
+        'Telefone1' => $params[0]['phone'],
+        'data_cadastro' => $params[0]['entered_at'],
+      ]);
   }
 
   public function countDelayedPayments()
@@ -768,13 +768,13 @@ class DatabaseQueries
     $current_date_validation = Carbon::createFromFormat('Y-m-d H:i:s', $current_date);
 
     return DB::connection('admin')
-    ->table('InovaAutomacao_PlanoValidacao')
-    ->whereBetween('ValidacaoDataProximaPromocao', [
-      dateFormatISO(dateFormat($current_date_validation)) . ' 00:00:00',
-      dateFormatISO(dateFormat($current_date_validation)) . ' 23:59:59'
+      ->table('InovaAutomacao_PlanoValidacao')
+      ->whereBetween('ValidacaoDataProximaPromocao', [
+        dateFormatISO(dateFormat($current_date_validation)) . ' 00:00:00',
+        dateFormatISO(dateFormat($current_date_validation)) . ' 23:59:59'
       ])
-    ->selectRaw('count(*) as count')
-    ->get();
+      ->selectRaw('count(*) as count')
+      ->get();
   }
 
   public function sumDelayedPayments()
@@ -783,16 +783,16 @@ class DatabaseQueries
     $current_date_validation = Carbon::createFromFormat('Y-m-d H:i:s', $current_date)->format('Y');
 
     return DB::connection('admin')
-    ->table('InovaAutomacao_Empresa')
-    ->join('InovaAutomacao_PlanoValidacao', 'InovaAutomacao_PlanoValidacao.EmpresaID', '=', 'InovaAutomacao_Empresa.EmpresaID')
-    ->whereBetween('ValidacaoDataProximaPromocao', [
-      "$current_date_validation-01-01 01:01:01",
-      "$current_date_validation-12-31 23:59:59"
+      ->table('InovaAutomacao_Empresa')
+      ->join('InovaAutomacao_PlanoValidacao', 'InovaAutomacao_PlanoValidacao.EmpresaID', '=', 'InovaAutomacao_Empresa.EmpresaID')
+      ->whereBetween('ValidacaoDataProximaPromocao', [
+        "$current_date_validation-01-01 01:01:01",
+        "$current_date_validation-12-31 23:59:59"
       ])
-    ->where('InovaAutomacao_Empresa.EmpresaValorPagto', '>', 0)
-    ->selectRaw('InovaAutomacao_PlanoValidacao.ValidacaoDataProximaPromocao as date, sum(InovaAutomacao_Empresa.EmpresaValorPagto) as value')
-    ->groupBy('InovaAutomacao_PlanoValidacao.ValidacaoDataProximaPromocao')
-    ->get();
+      ->where('InovaAutomacao_Empresa.EmpresaValorPagto', '>', 0)
+      ->selectRaw('InovaAutomacao_PlanoValidacao.ValidacaoDataProximaPromocao as date, sum(InovaAutomacao_Empresa.EmpresaValorPagto) as value')
+      ->groupBy('InovaAutomacao_PlanoValidacao.ValidacaoDataProximaPromocao')
+      ->get();
   }
 
   public function selectCompanyData()
@@ -801,13 +801,13 @@ class DatabaseQueries
     $current_date_validation = Carbon::createFromFormat('Y-m-d H:i:s', $current_date)->format('Y');
 
     return DB::connection('os')
-    ->table('EmpresaDados')
-    ->whereBetween('empresaPeriodo', [
-      "$current_date_validation-01-01",
-      "$current_date_validation-12-31"
+      ->table('EmpresaDados')
+      ->whereBetween('empresaPeriodo', [
+        "$current_date_validation-01-01",
+        "$current_date_validation-12-31"
       ])
-    ->select('empresaPeriodo as period', 'empresaFaturamentoTotalinova as money_in', 'empresaDespesasTotal as money_out')
-    ->get();
+      ->select('empresaPeriodo as period', 'empresaFaturamentoTotalinova as money_in', 'empresaDespesasTotal as money_out')
+      ->get();
   }
 
   /*public function chaveOS($document_number, $trade_name, $date)

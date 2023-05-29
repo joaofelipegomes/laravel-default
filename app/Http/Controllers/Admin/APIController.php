@@ -105,7 +105,8 @@ class APIController extends Controller
       ->header('Content-Type', 'application/json');
   }
 
-  public function checkUser($document) {
+  public function checkUser($document)
+  {
     $db = new DatabaseQueries();
     $pagarMeService = new PagarMeRequestService();
     $manage_url = '';
@@ -227,7 +228,9 @@ class APIController extends Controller
       }
 
       $KeyService = new KeyRequestService();
-      $KeyService->key($document_number, '', $current_period_end);
+      $new_current_period_end = dateFormatISO(dateFormat(addDaysToDate($current_period_end, 7)));
+      $KeyService->key($document_number, '', $new_current_period_end);
+      $db->nextPromotionalValidationDate($res_customer[0]->id, $new_current_period_end);
     } elseif ('transaction_status_changed' === $event) {
       //
     }
