@@ -15,10 +15,10 @@ document.querySelector('button.cancel').addEventListener('click', (e) => {
 
 document.querySelectorAll('button[name="station-update"]').forEach(element => {
   element.addEventListener('click', (e) => {
-  const id = parseInt(extractOnlyNumbers(document.querySelector('input[name="trade-name"]').getAttribute('store')))
-  const station_id = element.getAttribute('station')
+    const id = parseInt(extractOnlyNumbers(document.querySelector('input[name="trade-name"]').getAttribute('store')))
+    const station_id = element.getAttribute('station')
 
-  window.location.href = `/admin/ativacao/loja/${id}/estacao/${station_id}`;
+    window.location.href = `/admin/ativacao/loja/${id}/estacao/${station_id}`;
   })
 })
 
@@ -62,21 +62,6 @@ document.querySelector('button[name="save"]').addEventListener('click', (e) => {
   }
 
   if (validation_1) {
-    switch(subscription_cycle) {
-      case 'Mensal':
-        subscription_cycle = 1
-        break;
-      case 'Trimestral':
-        subscription_cycle = 3
-        break;
-      case 'Semestral':
-        subscription_cycle = 6
-        break;
-      default:
-        subscription_cycle = 12
-        break;
-    }
-
     const store_data = [{
       id,
       trade_name,
@@ -101,23 +86,23 @@ document.querySelector('button[name="save"]').addEventListener('click', (e) => {
     }]
 
     axios.put('/api/activation/store', store_data)
-    .then(function(response) {
-      if (response.data[0].code === 202) {
-        displaySnackbar('Cadastro atualizado com sucesso!', 'success')
-      } else {
+      .then(function (response) {
+        if (response.data[0].code === 202) {
+          displaySnackbar('Cadastro atualizado com sucesso!', 'success')
+        } else {
+          displaySnackbar('Não conseguimos alterar os dados.', 'error')
+        }
+      })
+      .catch(function (error) {
         displaySnackbar('Não conseguimos alterar os dados.', 'error')
-      }
-    })
-    .catch(function(error) {
-      displaySnackbar('Não conseguimos alterar os dados.', 'error')
-    })
+      })
   } else {
     displaySnackbar('Número de documento incorreto.', 'error')
   }
 })
 
 
-document.querySelector('input[name="subscription-document"]').addEventListener('change', function(e) {
+document.querySelector('input[name="subscription-document"]').addEventListener('change', function (e) {
   const document_number = e.target.value;
 
   if (document_number) {
