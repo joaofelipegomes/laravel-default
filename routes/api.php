@@ -92,7 +92,7 @@ Route::post(
 
 Route::post(
   '/postback/pagarme',
-  [APIController::class, 'postbackPagarmeTeste']
+  [APIController::class, 'postbackPagarme']
 );
 
 // *************** SENDING EMAILS *************** //
