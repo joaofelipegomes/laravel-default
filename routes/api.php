@@ -90,7 +90,7 @@ Route::post(
   [APIController::class, 'generateKeyQuick']
 );
 
-Route::get(
+Route::post(
   '/postback/pagarme',
   [APIController::class, 'postbackPagarmeTeste']
 );
