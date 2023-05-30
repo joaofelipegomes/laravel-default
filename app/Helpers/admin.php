@@ -630,13 +630,21 @@ class DatabaseQueries
       ->get();
   }
 
-  public function insertPayload($text, $date)
+  public function insertPayload($text)
   {
     return DB::connection('admin')
       ->table('retorno')
       ->insert([
-        'Payload' => $text,
-        'CurrentPeriodEnd' => $date
+        'Payload' => $text
+      ]);
+  }
+
+  public function insertPayloadEntire($text)
+  {
+    return DB::connection('admin')
+      ->table('retorno')
+      ->insert([
+        'Payload' => $text
       ]);
   }
 

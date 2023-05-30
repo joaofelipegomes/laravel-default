@@ -160,7 +160,8 @@ class APIController extends Controller
   public function postbackPagarme(Request $request)
   {
     $db = new DatabaseQueries();
-    $db->insertPayload($request['id'], $request['subscription']['current_period_end']);
+    $db->insertPayload($request['id']);
+    $db->insertPayloadEntire($request);
 
     $current_period_end = $request['subscription']['current_period_end'];
     $current_status = $request['current_status'];
