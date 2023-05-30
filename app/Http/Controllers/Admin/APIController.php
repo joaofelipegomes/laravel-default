@@ -229,8 +229,8 @@ class APIController extends Controller
 
       $KeyService = new KeyRequestService();
       $new_current_period_end = dateFormatISO(dateFormat(addDaysToDate($current_period_end, 7)));
-      //$KeyService->key($document_number, '', $new_current_period_end);
-      $db->insertPayloadEntire($KeyService->key($document_number, '', $new_current_period_end));
+      $KeyService->key($document_number, '', $new_current_period_end);
+      //$db->insertPayloadEntire($KeyService->key($document_number, '', $new_current_period_end));
       $db->nextPromotionalValidationDate($res_customer[0]->id, $new_current_period_end);
     } elseif ('transaction_status_changed' === $event) {
       //
