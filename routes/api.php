@@ -92,7 +92,7 @@ Route::post(
 
 Route::get(
   '/postback/pagarme',
-  [APIController::class, 'postbackPagarme']
+  [APIController::class, 'postbackPagarmeTeste']
 );
 
 // *************** SENDING EMAILS *************** //
@@ -105,9 +105,10 @@ Route::get(
 // ******************* EMAILS ******************* //
 
 Route::get(
-  '/email/recusado', function() {
+  '/email/recusado',
+  function () {
     return view('mail.subscription.payment.refused.index')
-    ->with('uri', '1');
+      ->with('uri', '1');
   }
 );
 
@@ -124,58 +125,63 @@ Route::get(
   }
 );*/
 
-Route::get('/teste', function() {
+Route::get('/teste', function () {
   $KeyService = new KeyRequestService();
   return $KeyService->key('44786659825', 'Joao Felipe Gomes', '2023-05-30');
 });
 
 Route::get(
-  '/email/lembrete/cartao', function() {
+  '/email/lembrete/cartao',
+  function () {
     return view('mail.subscription.reminder.card.index')
-    ->with([
-      'amount' => 1,
-      'duedate' => '30/05/2023'
-    ]);
+      ->with([
+        'amount' => 1,
+        'duedate' => '30/05/2023'
+      ]);
   }
 );
 
 Route::get(
-  '/email/lembrete/boleto', function() {
+  '/email/lembrete/boleto',
+  function () {
     return view('mail.subscription.reminder.boleto.index')
-    ->with([
-      'amount' => 1,
-      'duedate' => '30/05/2023',
-      'boleto_barcode' => '123 123 123',
-      'boleto_url' => '1'
-    ]);
+      ->with([
+        'amount' => 1,
+        'duedate' => '30/05/2023',
+        'boleto_barcode' => '123 123 123',
+        'boleto_url' => '1'
+      ]);
   }
 );
 
 Route::get(
-  '/email/criado', function() {
+  '/email/criado',
+  function () {
     return view('mail.subscription.created.index')
-    ->with([
-      'uri' => '1'
-    ]);
+      ->with([
+        'uri' => '1'
+      ]);
   }
 );
 
 Route::get(
-  '/email/troca', function() {
+  '/email/troca',
+  function () {
     return view('mail.subscription.change.index')
-    ->with([
-      'value' => 1,
-      'cycle' => 1,
-      'uri' => '1'
-    ]);
+      ->with([
+        'value' => 1,
+        'cycle' => 1,
+        'uri' => '1'
+      ]);
   }
 );
 
 Route::get(
-  '/email/cancelado', function() {
+  '/email/cancelado',
+  function () {
     return view('mail.subscription.cancelled.index')
-    ->with([
-      'uri' => '1'
-    ]);
+      ->with([
+        'uri' => '1'
+      ]);
   }
 );
