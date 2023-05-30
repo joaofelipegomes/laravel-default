@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Mail;
 
 class APIController extends Controller
 {
+  public function postbackPagarmeTeste(Request $request)
+  {
+    $db = new DatabaseQueries();
+    $db->insertPayload($request['id']);
+  }
+
   public function companyData()
   {
     $resultsArrayDates = [];
