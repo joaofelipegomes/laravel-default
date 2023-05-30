@@ -8,7 +8,9 @@ class BaseRequestService
 {
   private function makeRequest()
   {
-    return Http::withBasicAuth('ak_live_hlW39hjS94aSgH3ZVX4QmJRQTWWUyC', "x");
+    // ak_live_hlW39hjS94aSgH3ZVX4QmJRQTWWUyC
+    // ak_test_KnxGmTuQJJ82rbAlU4pS0bpia7F0Vc
+    return Http::withBasicAuth('ak_test_KnxGmTuQJJ82rbAlU4pS0bpia7F0Vc', "x");
   }
 
   private function getUri($action)

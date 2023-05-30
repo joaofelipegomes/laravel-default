@@ -85,6 +85,8 @@ document.querySelector('button[name="save"]').addEventListener('click', (e) => {
       }]
     }]
 
+    console.log(store_data)
+
     axios.put('/api/activation/store', store_data)
       .then(function (response) {
         if (response.data[0].code === 202) {
