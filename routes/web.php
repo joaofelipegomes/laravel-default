@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CheckController;
 
 Route::get('/', function () {
-  return redirect('https://www.inovasistemas.com.br');
+  return response('', 200)
+    ->header('Content-Type', 'text/plain');
 });
 
 Route::get(
